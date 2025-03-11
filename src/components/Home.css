@@ -1,0 +1,503 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+body {
+  font-family: 'Lato', sans-serif;
+  background: #ffa14317;
+  margin: 0;
+  overflow-y: auto;
+}
+
+body::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  background-color: #ffa143 !important;
+}
+
+/* Home Container Structure */
+.home-wrapper {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px 0 0;
+  background-color: #f9f3e1;
+  max-width: 100%;
+}
+
+/* Consistent Section Padding */
+.section-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* Navigation Section */
+.nav-section {
+  display: flex;
+  justify-content: flex-start;
+  background-color: white;
+  padding: 5px;
+  border-radius: px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin: 0 10px;
+  padding: x 0;
+}
+
+.nav-section::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-items {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.nav-items li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 85px;
+  flex-shrink: 0;
+}
+
+.nav-items li a {
+  background-color: #0a4ea2;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: white;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease-in-out;
+  width: 85px;
+}
+
+.nav-items li a:hover {
+  background-color: #083b7a;
+}
+
+.nav-items li img {
+  height: 25px;
+  width: 25px;
+  object-fit: contain;
+}
+
+/* Games Section - Consistent padding */
+.games-container {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin: 0 10px;
+}
+
+.games-container::-webkit-scrollbar {
+  display: none;
+}
+
+.game-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  flex-shrink: 0;
+}
+
+.game-item:hover {
+  transform: scale(1.1);
+}
+
+.game-item img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 3px solid #d18630;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 5px;
+  object-fit: cover;
+}
+
+/* Race Section - Fixed padding and margins */
+.race-container {
+  overflow: hidden;
+  padding: 5px 10px !important;
+  margin: 0 10px;
+}
+
+.race-title {
+  padding: 5px 10px !important;
+  color: #FFF;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-color: #3c1404;
+  border-radius: 5px;
+  border: none !important;
+  letter-spacing: 1px;
+  font-size: 10px;
+  box-shadow: inset 0 0px 2px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.race-scroll {
+  display: flex;
+  gap: 5px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 10px 0;
+}
+
+.race-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #dbdbdb;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: inherit;
+  min-width: 110px;
+  flex-shrink: 0;
+}
+
+.race_detail {
+  margin-left: 5px;
+}
+
+.race_time {
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.race-name {
+  font-size: 11px;
+  color: #666;
+}
+
+/* Section Container - Consistent padding */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* section-Event */
+.section-Event {
+  background-color: #4b2e1e;
+  color: white;
+  padding: 5px 10px !important;
+  display: block;
+  font-size: 10px;
+  box-shadow: inset 0 0 5px 0 #3c1404;
+  font-weight: 700;
+  border: none !important;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Event Card */
+.event-card {
+  background: white;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  margin: 0 10px 10px 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.event-time {
+  font-size: 14px;
+  color: #555;
+}
+
+.event-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.event-score {
+  color:  red;
+  font-weight: bold;
+}
+
+/* Badges */
+.badges {
+  display: flex;
+  gap: 8px;
+}
+
+.badge {
+  background-color: #5a3827;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Status Indicators */
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  border-radius: 50%;
+}
+
+/* Grid Container */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+  margin: 10px;
+}
+
+.grid-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+.blue {
+  background: #007bff;
+}
+
+.red {
+  background: #dc3545;
+}
+
+/* Responsive Design - Improved */
+@media (max-width: 768px) {
+  .section-wrapper {
+    padding: 0 5px;
+  }
+  
+  .nav-section, .games-container, .race-container, .section-header, .event-card, .grid-container {
+    margin: 0 5px 10px 5px;
+  }
+
+  .nav-items li a {
+    font-size: 10px;
+    min-width: 70px;
+    width: 70px;
+    padding: 6px;
+  }
+
+  .nav-items li img {
+    height: 20px;
+    width: 20px;
+  }
+
+  .game-item img {
+    width: 60px;
+    height: 60px;
+    border-width: 2px;
+  }
+  
+  .race-title {
+    font-size: 10px;
+    padding: 4px 8px !important;
+  }
+  
+  .chip {
+    min-width: 100px;
+    padding: 8px;
+  }
+
+  .event-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .badges {
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+
+  .grid-box {
+    height: 40px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-wrapper {
+    padding: 0 3px;
+  }
+  
+  .nav-section, .games-container, .race-container, .section-header, .event-card, .grid-container {
+    margin: 0 3px 8px 3px;
+  }
+
+  .nav-items {
+    gap: 5px;
+  }
+
+  .nav-items li {
+    min-width: 60px;
+  }
+
+  .nav-items li a {
+    font-size: 9px;
+    min-width: 60px;
+    width: 60px;
+    padding: 5px;
+  }
+
+  .nav-items li img {
+    height: 18px;
+    width: 18px;
+  }
+
+  .game-item img {
+    width: 50px;
+    height: 50px;
+    border-width: 2px;
+    padding: 3px;
+  }
+
+  .chip {
+    min-width: 85px;
+    padding: 6px;
+  }
+
+  .race_time {
+    font-size: 11px;
+  }
+
+  .race-name {
+    font-size: 9px;
+  }
+
+  .section-header {
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  .event-time {
+    font-size: 11px;
+  }
+
+  .event-title {
+    font-size: 13px;
+  }
+
+  .event-score {
+    font-size: 13px;
+  }
+
+  .badge {
+    font-size: 10px;
+    padding: 2px 5px;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 5px;
+  }
+
+  .grid-box {
+    height: 35px;
+    font-size: 12px;
+  }
+}
+
+/* For extra small devices */
+@media (max-width: 375px) {
+  .nav-items li {
+    min-width: 50px;
+  }
+
+  .nav-items li a {
+    font-size: 8px;
+    min-width: 50px;
+    width: 50px;
+    padding: 4px;
+  }
+
+  .nav-items li img {
+    height: 16px;
+    width: 16px;
+  }
+
+  .game-item img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .chip {
+    min-width: 75px;
+    padding: 5px;
+  }
+  
+  .race_detail {
+    margin-left: 5px;
+  }
+
+  .race_time {
+    font-size: 10px;
+  }
+
+  .race-name {
+    font-size: 8px;
+  }
+  
+  .event-card {
+    padding: 8px;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  }
+}

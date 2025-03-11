@@ -1,0 +1,155 @@
+/* ProfitLoss.css */
+
+/* Container */
+.profit-loss-container {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+.profit-loss-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffebcc;
+  padding: 14px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 6px 6px 0 0;
+}
+
+.menu-button {
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Announcement Bar */
+.announcement-bar {
+  background: #1e3a8a;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-top: 12px;
+}
+
+/* Dropdown Sections */
+.select-container {
+  padding: 12px 0;
+}
+
+.select-label {
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.select-box {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  background: white;
+}
+
+/* Table */
+.table-container {
+  width: 100%;
+  margin-top: 12px;
+  border-collapse: collapse;
+  background: #fff8f2;
+}
+
+.table-container th {
+  background: #f97316;
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.table-container td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.total-amount {
+  color: red;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+
+/* Responsive Design for iPhone SE */
+@media (max-width: 375px) {
+  .profit-loss-container {
+    padding: 10px;
+    max-width: 360px;
+  }
+
+  .profit-loss-header {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .announcement-bar {
+    font-size: 11px;
+    padding: 5px;
+  }
+
+  .select-box {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .table-container th, .table-container td {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
+
+/* Responsive Design for Desktop */
+@media (min-width: 1024px) {
+  .profit-loss-container {
+    max-width: 1000px;
+    padding: 24px;
+  }
+
+  .profit-loss-header {
+    font-size: 22px;
+    padding: 16px;
+  }
+
+  .announcement-bar {
+    font-size: 18px;
+    padding: 12px;
+  }
+
+  .select-box {
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  .table-container th, .table-container td {
+    font-size: 18px;
+    padding: 14px;
+  }
+
+  .total-amount {
+    font-size: 20px;
+  }
+}
