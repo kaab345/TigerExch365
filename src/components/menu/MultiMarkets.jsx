@@ -6,13 +6,7 @@ function MultiMarkets() {
   return (
     <div className="bg-[#fdf7f1] min-h-screen pb-20">
    
-      {/* Navbar */}
-      <nav className="navbar">
-        <button className="menu-button" onClick={() => console.log("Sidebar opened")}>
-        </button>
-        <span>MULTI MARKET</span>
-        <div></div> {/* Placeholder for spacing */}
-      </nav>
+      
 
       {/* Market Section */}
       <div className="market-container">

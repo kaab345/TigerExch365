@@ -101,9 +101,9 @@ const sportsData = [
 const Race = ({ race }) => {
   return (
     <a href={race.link || race.url} className="chip">
-      <img src={race.flag} alt="Horse" style={{ borderRadius: '0px', width: '36px', height: '24px' }} />
-      <div className="race_detail">
-        <span className="race_time" style={{ fontWeight: '700' }}>{race.time}</span>
+      <img src={race.flag} alt="Flag" className="race-flag" />
+      <div className="race-detail">
+        <span className="race-time">{race.time}</span>
         <span className="race-name">{race.name}</span>
       </div>
     </a>
@@ -113,20 +113,19 @@ const Race = ({ race }) => {
 // Sports Events Component
 const SportsEvents = () => {
   return (
-    <div className="section-Events">
-      {/* Featured Events Section */}
-      <div className="section-Event">FEATURED EVENTS</div>
+    <div className="sports-events-section">
+      <div className="section-header">FEATURED EVENTS</div>
       {sportsData.map((sport, index) => (
-        <div key={index}>
-          <div className="section-Event">{sport.category}</div>
+        <div key={index} className="sport-category">
+          <div className="section-header">{sport.category}</div>
           {sport.events.map((event, idx) => (
             <div key={idx} className="event-card">
-              <div>
+              <div className="event-info">
                 <p className="event-time">{event.date}</p>
                 <p className="event-title">{event.teams}</p>
                 <p className="event-score">{event.score}</p>
               </div>
-              <div className="badges">
+              <div className="event-badges">
                 <span className="badge">BM</span>
                 <span className="badge">F</span>
               </div>
@@ -141,24 +140,24 @@ const SportsEvents = () => {
 // Sports Table Component
 const SportsTable = () => {
   return (
-    <div className="section-container bg-gray-100 p-4">
+    <div className="sports-table-section">
       {sportsData.map((sport, index) => (
-        <div key={index} className="mb-6">
-          <h2 className="bg-brown-900 text-white p-2 text-lg font-bold">{sport.category}</h2>
+        <div key={index} className="sport-table">
+          <h2 className="table-header">{sport.category}</h2>
           {sport.events.map((event, idx) => (
-            <div key={idx} className="bg-white p-3 border-b">
-              <p className="text-sm text-gray-700">{event.date}</p>
-              <p className="font-semibold text-md">{event.teams}</p>
-              <p className="text-red-500 font-bold">{event.score}</p>
+            <div key={idx} className="table-event">
+              <p className="table-event-date">{event.date}</p>
+              <p className="table-event-teams">{event.teams}</p>
+              <p className="table-event-score">{event.score}</p>
               {event.odds.length > 0 && (
-                <table className="w-full mt-2 border border-gray-300">
+                <table className="odds-table">
                   <tbody>
                     {event.odds.map((row, i) => (
-                      <tr key={i} className="border border-gray-300">
+                      <tr key={i} className="odds-row">
                         {row.map((odd, j) => (
                           <td
                             key={j}
-                            className={`p-2 text-center border border-gray-300 ${j % 2 === 0 ? "bg-blue-400 text-white" : "bg-red-400 text-white"}`}
+                            className={`odds-cell ${j % 2 === 0 ? "odds-blue" : "odds-red"}`}
                           >
                             {odd}
                           </td>
@@ -176,71 +175,74 @@ const SportsTable = () => {
   );
 };
 
+const NavigationSection = () => (
+  <div className="section-wrapper">
+    <nav className="nav-section">
+      <ul className="nav-items">
+        {navItems.map((item, index) => (
+          <li key={index} className="nav-item">
+            <a href={item.link} className="nav-link">
+              <img 
+                src={`https://tiger365.me/tiger365.me/images/${item.icon}`} 
+                alt={item.name} 
+                className="nav-icon" 
+              />
+              <span className="nav-count">{item.count}</span>
+              <p className="nav-name">{item.name}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+);
+
+const GamesSection = () => (
+  <div className="section-wrapper">
+    <div className="games-container">
+      {games.map((game, index) => (
+        <div key={index} className="game-item">
+          <a href={game.link} target="_blank" rel="noopener noreferrer" className="game-link">
+            <img src={game.image} alt="Game" className="game-image" />
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+const RacesSection = ({ races, title }) => (
+  <div className="section-wrapper">
+    <div className="race-container">
+      <h3 className="race-title">{title}</h3>
+      <div className="race-scroll">
+        {races.length > 0 ? (
+          races.map((race, index) => (
+            <Race key={race.id || index} race={race} />
+          ))
+        ) : (
+          <p className="no-races">No upcoming races available.</p>
+        )}
+      </div>
+    </div>
+  </div>
+);
+
 const Home = () => {
   return (
     <div className="home-wrapper">
       <div className="home-container">
         {/* Navigation Section */}
-        <div className="section-wrapper">
-          <nav className="nav-section">
-            <ul className="nav-items">
-              {navItems.map((item, index) => (
-                <li key={index}>
-                  <a href={item.link}>
-                    <img src={`https://tiger365.me/tiger365.me/images/${item.icon}`} alt={item.name} />
-                    <span>{item.count}</span>
-                    <p>{item.name}</p>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
+        <NavigationSection />
 
         {/* Games Section */}
-        <div className="section-wrapper">
-          <div className="games-container">
-            {games.map((game, index) => (
-              <div key={index} className="game-item">
-                <a href={game.link} target="_blank" rel="noopener noreferrer">
-                  <img src={game.image} alt="Game Image" />
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
+        <GamesSection />
 
         {/* First Set of Races */}
-        <div className="section-wrapper">
-          <div className="race-container">
-            <h3 className="race-title">Upcoming Races (Set 1)</h3>
-            <div className="race-scroll">
-              {races1.length > 0 ? (
-                races1.map((race) => (
-                  <Race key={race.id} race={race} />
-                ))
-              ) : (
-                <p>No upcoming races available.</p>
-              )}
-            </div>
-          </div>
-        </div>
+        <RacesSection races={races1} title="Upcoming Races (Set 1)" />
 
         {/* Second Set of Races */}
-        <div className="section-wrapper">
-          <div className="race-container">
-            <h3 className="race-title">Upcoming Races (Set 2)</h3>
-            <div className="race-scroll">
-              {races2.length > 0 ? (
-                races2.map((race, index) => (
-                  <Race key={index} race={race} />
-                ))
-              ) : (
-                <p>No upcoming races available.</p>
-              )}
-            </div>
-          </div>
-        </div>
+        <RacesSection races={races2} title="Upcoming Races (Set 2)" />
 
         {/* Sports Events Section */}
         <div className="section-wrapper">

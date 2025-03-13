@@ -10,8 +10,9 @@ import Statement from "./components/menu/Statement";
 import UnSetted from "./components/menu/UnSetted";
 import TermsAndConditions from "./components/menu/TermsAndConditions"; 
 import EditStakes from "./components/menu/EditStakes";
-import Profile from "./components/menu/profile";
+import Profile from "./components/menu/Profile";
 import Betting from "./components/Cricket/Betting";
+import Rule from "./components/menu/Rule";
 
 // Bottom Navigation Component
 const BottomNav = () => {
@@ -128,6 +129,7 @@ function App() {
               <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
               <Route path="/edit-stake" element={<EditStakes/>} />
               <Route path="/Profile" element={<Profile/>} />
+              <Route path="/Rule" element={<Rule/>} />
               <Route path="/Home" element={<Home />} />
               <Route path="/Betting" element={<Betting/>} />
             </Routes>
@@ -182,17 +184,52 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   }, []);
   
   const menuItems = [
-    { name: "Home", icon: <FaList />, link: "/Home" },
-    { name: "Multi Markets", icon: <FaChartLine />, link: "/multi-markets" },
-    { name: "Profit Loss", icon: <FaChartLine />, link: "/profit-loss" },
-    { name: "A/C Statement", icon: <FaList />, link: "/statement" },
-    { name: "Un-Settled Bets", icon: <FaList />, link: "/unsetted" },
-    { name: "T & C", icon: <FaList />, link: "/terms-and-conditions" },
-    { name: "Rules", icon: <FaList />, link: "#" },
-    { name: "Edit Stakes", icon: <FaList />, link: "/edit-stake" },
-    { name: "Profile (demo123)", icon: <FaUser />, link: "/Profile" },
-  ];
-  
+    { 
+        name: "Home", 
+        icon: <img className="menu-icon" src="https://tiger365.me/tiger365.me/images/home.svg" alt="Home" />, 
+        link: "/Home" 
+    },
+    { 
+        name: "Multi Markets", 
+        icon: <img className="menu-icon" src="https://tiger365.me/tiger365.me/images/multi.svg" alt="Multi Markets" />, 
+        link: "/multi-markets" 
+    },
+    { 
+        name: "Profit Loss", 
+        icon: <img className="menu-icon" src="https://tiger365.me/tiger365.me/images/profitloss.svg" alt="Profit Loss" />, 
+        link: "/profit-loss" 
+    },
+    { 
+        name: "A/C Statement", 
+        icon: <img className="menu-icon" src="https://tiger365.me/tiger365.me/images/statement.svg" alt="A/C Statement" />, 
+        link: "/statement" 
+    },
+    { 
+        name: "Un-Settled Bets", 
+        icon: <img className="menu-icon" src="https://tiger365.me/tiger365.me/images/bets.svg" alt="Un-Settled Bets" />, 
+        link: "/unsetted" 
+    },
+    { 
+        name: "T & C", 
+        icon: <img className="menu-icon" src="https://tiger365.me/tiger365.me/images/terms.svg" alt="T & C" />, 
+        link: "/terms-and-conditions" 
+    },
+    { 
+        name: "Rules", 
+        icon: <img className="menu-icon" src="https://tiger365.me/tiger365.me/images/terms.svg" alt="Rules" />, 
+        link: "/Rule" 
+    },
+    { 
+        name: "Edit Stakes", 
+        icon: <img className="menu-icon" src="https://tiger365.me/tiger365.me/images/edit.svg" />, 
+        link: "/edit-stake" 
+    },
+    { 
+        name: "Profile (demo123)", 
+        icon: <img className="menu-icon" src="https://tiger365.me/tiger365.me/images/profile.svg" alt="Profile" />, 
+        link: "/Profile" 
+    },
+];
   return (
     <div 
       ref={sidebarRef} 
@@ -207,17 +244,30 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           </li>
         ))}
         
-        {/* Dark Mode Toggle */}
         <li className="sidebar-item dark-mode-toggle" onClick={toggleDarkMode}>
-          {darkMode ? <FaSun /> : <FaMoon />} <span>Mode: {darkMode ? "Dark" : "Light"}</span>
-        </li>
+  <img 
+    src="https://tiger365.me/tiger365.me/images/contrast.svg" 
+    alt="Contrast Icon" 
+    className="menu-icon" 
+  />
+  
+  <span>Mode: {darkMode ? "Dark" : "Light"}</span>
+</li>
+
         
         {/* Logout Button */}
         <li className="sidebar-item logout" onClick={handleLogout}>
-          <button className="sidebar-link">
-            <FaSignOutAlt /> <span>Logout</span>
-          </button>
-        </li>
+  <button className="sidebar-link">
+    <img 
+      src="https://tiger365.me/tiger365.me/images/logout.svg" 
+      alt="Contrast Icon" 
+      className="menu-icon" 
+    />
+
+    <span>Logout</span>
+  </button>
+</li>
+
       </ul>
     </div>
   );

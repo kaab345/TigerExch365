@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Profile.css'; // Import the CSS file
+import './Profile.css'; // Import the CSS file for custom styling
 
 const Profile = () => {
   const [oldPassword, setOldPassword] = useState('');
@@ -18,8 +18,6 @@ const Profile = () => {
       <div className="profile-header">
         <h1>PROFILE</h1>
       </div>
-      
-     
       
       {/* Main content */}
       <div className="main-content">

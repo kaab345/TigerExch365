@@ -11,10 +11,11 @@ import "./components/menu/UnSetted.jsx";
 import "./components/menu/TermsAndConditions.jsx"
 import "./components/menu/EditStakes.jsx"
 import "./components/menu/EditStake.css"
-import "./components/menu/profile.jsx";
+import "./components/menu/Profile.jsx";
 import "./components/menu/Profile.css";
 import "./components/Cricket/Betting.jsx"
 import "./components/Cricket/Betting.css";
+import "./components/menu/Rule.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <App />
