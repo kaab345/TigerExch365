@@ -65,7 +65,6 @@ function App() {
   const [expose, setExpose] = useState(0.0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   
-  // This toggles the sidebar and sets a class on the body for styling
   const toggleSidebar = () => {
     setSidebarOpen(prev => !prev);
     document.body.classList.toggle('sidebar-open');
@@ -73,69 +72,68 @@ function App() {
   
   return (
     <Router>
-      <div className={`flex flex-col min-h-screen pb-14 ${sidebarOpen ? 'sidebar-overlay' : ''}`}>
-        {/* Header Component */}
-        <header className="header-container">
-          <div className="top-bar">
-            <div className="balance">
-              <span>Balance :</span>{" "}
-              <span className="highlight">
-                {balance?.toFixed(2) || "0.00"} PTI
-              </span>
-            </div>
-            <div className="exposure">
-              Exp : <span className="highlight">{expose?.toFixed(2) || "0.00"}</span>
-            </div>
-          </div>
-          <nav className="nav-bar">
-            <a href="https://tiger365.me" target="_blank" rel="noopener noreferrer">
-              <img
-                src="https://tiger365.me/tiger365.me/images/logo-text.png"
-                alt="TigerExch Logo"
-                className="logo"
-              />
-            </a>
-          </nav>
-          <div className="announcement ticker">
-            <p>
-              We have launched 4500+ games in new I-casino. Please note: In new
-              I-casino, 1 point = 100 points.
-            </p>
-          </div>
-        </header>
+      <div className="app-container">
+        <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+        
+        <div className="content-wrapper">
+          <main className="main-content">
+            {/* Header moved inside main content */}
+            <header className="header-container">
+              <button 
+                className="menu-toggle" 
+                onClick={toggleSidebar} 
+                aria-label="Toggle Menu"
+              >
+                <FaBars />
+              </button>
 
-        <div className="flex flex-grow relative">
-          {/* Menu Toggle Button - Move inside layout but outside sidebar */}
-          <button 
-            className="menu-toggle" 
-            onClick={toggleSidebar} 
-            aria-label="Toggle Menu"
-          >
-            <FaBars />
-          </button>
-          
-          {/* Sidebar */}
-          <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+              <div className="top-bar">
+                <div className="balance">
+                  <span>Balance :</span>{" "}
+                  <span className="highlight">
+                    {balance?.toFixed(2) || "0.00"} PTI
+                  </span>
+                </div>
+                <div className="exposure">
+                  Exp : <span className="highlight">{expose?.toFixed(2) || "0.00"}</span>
+                </div>
+              </div>
+              <nav className="nav-bar">
+                <a href="https://tiger365.me" target="_blank" rel="noopener noreferrer">
+                  <img
+                    src="https://tiger365.me/tiger365.me/images/logo-text.png"
+                    alt="TigerExch Logo"
+                    className="logo"
+                  />
+                </a>
+              </nav>
+              <div className="announcement ticker">
+                <p>
+                  We have launched 4500+ games in new I-casino. Please note: In new
+                  I-casino, 1 point = 100 points.
+                </p>
+              </div>
+            </header>
 
-          {/* Main Content - Replace flex-grow div with main-content class */}
-          <div className={`main-content ${sidebarOpen ? 'blur-background' : ''}`}>
-            <Routes>
-              <Route path="/Home" element={<Home />} />
-              <Route path="/multi-markets" element={<MultiMarkets />} />
-              <Route path="/profit-loss" element={<ProfitLoss />} />
-              <Route path="/statement" element={<Statement />} />
-              <Route path="/unsetted" element={<UnSetted />} />
-              <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-              <Route path="/edit-stake" element={<EditStakes/>} />
-              <Route path="/Profile" element={<Profile/>} />
-              <Route path="/Home" element={<Home />} />
-              <Route path="/Betting" element={<Betting/>} />
-            </Routes>
-          </div>
+            {/* Routes section */}
+            <div className="routes-container">
+              <Routes>
+                <Route path="/Home" element={<Home />} />
+                <Route path="/multi-markets" element={<MultiMarkets />} />
+                <Route path="/profit-loss" element={<ProfitLoss />} />
+                <Route path="/statement" element={<Statement />} />
+                <Route path="/unsetted" element={<UnSetted />} />
+                <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+                <Route path="/edit-stake" element={<EditStakes/>} />
+                <Route path="/Profile" element={<Profile/>} />
+                <Route path="/Home" element={<Home />} />
+                <Route path="/Betting" element={<Betting/>} />
+              </Routes>
+            </div>
+          </main>
+
+          <BottomNav />
         </div>
-
-        {/* Bottom Navigation */}
-        <BottomNav />
       </div>
     </Router>
   );
