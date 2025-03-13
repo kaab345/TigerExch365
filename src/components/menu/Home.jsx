@@ -3,14 +3,14 @@ import "./Home.css";
 
 // Navigation Items
 const navItems = [
-  { name: "FEATURED", icon: "star-selected.svg", count: 4 },
-  { name: "CRICKET", icon: "icon-cricket.svg", count: 11 },
-  { name: "FOOTBALL", icon: "icon-football.svg", count: 15 },
-  { name: "TENNIS", icon: "icon-tennis.svg", count: 15 },
-  { name: "HORSE RACING", icon: "icon-horse.svg", count: 18 },
-  { name: "GREYHOUND RACING", icon: "icon-greyhound.svg", count: 54 },
-  { name: "KABADDI", icon: "kabaddi.svg", count: 0 },
-  { name: "POLITICS", icon: "icon-politics.svg", count: 0 },
+  { name: "FEATURED", icon: "star-selected.svg", count: 4, link: "./featured" },
+  { name: "CRICKET", icon: "icon-cricket.svg", count: 11, link: "./Betting" },
+  { name: "FOOTBALL", icon: "icon-football.svg", count: 15, link: "./football" },
+  { name: "TENNIS", icon: "icon-tennis.svg", count: 15, link: "./tennis" },
+  { name: "HORSE RACING", icon: "icon-horse.svg", count: 18, link: "./horse-racing" },
+  { name: "GREYHOUND RACING", icon: "icon-greyhound.svg", count: 54, link: "./greyhound-racing" },
+  { name: "KABADDI", icon: "kabaddi.svg", count: 0, link: "./kabaddi" },
+  { name: "POLITICS", icon: "icon-politics.svg", count: 0, link: "./politics" },
 ];
 
 // Games Data
@@ -116,43 +116,24 @@ const SportsEvents = () => {
     <div className="section-Events">
       {/* Featured Events Section */}
       <div className="section-Event">FEATURED EVENTS</div>
-      <div className="event-card">
-        <div>
-          <p className="event-time">02/03/2025 02:30:00 PM</p>
-          <p className="event-title">New Zealand V India</p>
-          <p className="event-score">0</p>
+      {sportsData.map((sport, index) => (
+        <div key={index}>
+          <div className="section-Event">{sport.category}</div>
+          {sport.events.map((event, idx) => (
+            <div key={idx} className="event-card">
+              <div>
+                <p className="event-time">{event.date}</p>
+                <p className="event-title">{event.teams}</p>
+                <p className="event-score">{event.score}</p>
+              </div>
+              <div className="badges">
+                <span className="badge">BM</span>
+                <span className="badge">F</span>
+              </div>
+            </div>
+          ))}
         </div>
-        <div className="badges">
-          <span className="badge">BM</span>
-          <span className="badge">F</span>
-        </div>
-      </div>
-
-      {/* Cricket Events Section */}
-      <div className="section-Event">CRICKET</div>
-      <div className="event-card">
-        <div>
-          <p className="event-time">26/02/2025 09:30:00 AM</p>
-          <p className="event-title">Vidarbha V Kerala</p>
-          <p className="event-score">0</p>
-        </div>
-        <div className="icons">
-          <span className="status-indicator"></span>
-          <span className="badge">F</span>
-        </div>
-      </div>
-
-      {/* Grid Box Representation */}
-      <div className="grid-container">
-        {Array.from({ length: 6 }).map((_, index) => (
-          <div
-            key={index}
-            className={`grid-box ${index % 2 === 0 ? "blue" : "red"}`}
-          >
-            .
-          </div>
-        ))}
-      </div>
+      ))}
     </div>
   );
 };
@@ -191,10 +172,6 @@ const SportsTable = () => {
           ))}
         </div>
       ))}
-      <div className="section-Event">FOOTBALL</div>
-      <div className="section-Event">TENNIS</div>
-      <div className="section-Event">KABADDI</div>
-      <div className="section-Event">POLITICS</div>
     </div>
   );
 };
@@ -209,7 +186,7 @@ const Home = () => {
             <ul className="nav-items">
               {navItems.map((item, index) => (
                 <li key={index}>
-                  <a href="#">
+                  <a href={item.link}>
                     <img src={`https://tiger365.me/tiger365.me/images/${item.icon}`} alt={item.name} />
                     <span>{item.count}</span>
                     <p>{item.name}</p>

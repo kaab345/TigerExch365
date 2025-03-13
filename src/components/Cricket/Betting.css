@@ -1,0 +1,131 @@
+/* Main container styling */
+.betting-table-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Table styling */
+.betting-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Match row styling */
+.match-row {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Match info cell styling */
+.match-info {
+  padding: 10px;
+  width: 25%;
+  vertical-align: top;
+}
+
+.match-date {
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.match-league {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.match-count {
+  color: red;
+  font-size: 14px;
+}
+
+/* Icons cell styling */
+.match-icons {
+  width: 10%;
+  padding: 10px 5px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 0 3px;
+  line-height: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  font-size: 12px;
+}
+
+.desktop-icon {
+  background-color: green;
+  border-radius: 50%;
+}
+
+.bm-icon {
+  background-color: #ff9933;
+}
+
+.f-icon {
+  background-color: #ff9933;
+}
+
+/* Odds container styling */
+.odds-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 65%;
+}
+
+.odds-group {
+  display: flex;
+  width: 33.33%;
+}
+
+.back-cell, .lay-cell {
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  position: relative;
+  height: 60px;
+}
+
+.back-cell {
+  background-color: #7fc4e8; /* Blue */
+}
+
+.lay-cell {
+  background-color: #f9a7bb; /* Pink */
+}
+
+.amount {
+  font-size: 12px;
+  font-weight: normal;
+  margin-top: 5px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .match-info {
+    width: 60%;
+  }
+  
+  .match-icons {
+    width: 40%;
+  }
+  
+  .odds-container {
+    display: none; /* Hide odds section on mobile */
+  }
+}

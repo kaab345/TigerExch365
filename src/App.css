@@ -228,8 +228,8 @@
   position: fixed;
   top: 15px;
   left: 15px;
-  background: #ff8000;
-  color: white;
+  background: white;
+  color: black;
   font-size: 24px;
   border: none;
   cursor: pointer;
@@ -238,6 +238,7 @@
   z-index: 1101;
   transition: background 0.3s ease-in-out;
   display: none;
+  width: auto;
 }
 
 /* 8. Bottom Navigation */
@@ -308,8 +309,9 @@
 @media screen and (max-width: 768px) {
   .menu-toggle {
     display: flex;
+  
   }
-
+  
   .sidebar {
     transform: translateX(-100%);
     width: 220px;

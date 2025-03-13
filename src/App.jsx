@@ -3,14 +3,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import { FaChartLine, FaList, FaUser, FaMoon, FaSun, FaSignOutAlt, FaBars, FaStopwatch, FaStar, FaHome, FaDice, FaGamepad } from "react-icons/fa";
 import "./App.css";
-import MultiMarkets from "./components/MultiMarkets";
-import ProfitLoss from "./components/ProfitLoss";
-import Home from "./components/Home";
-import Statement from "./components/Statement";
-import UnSetted from "./components/UnSetted";
-import TermsAndConditions from "./components/TermsAndConditions"; 
-import EditStakes from "./components/EditStakes";
-import Profile from "./components/profile";
+import MultiMarkets from "./components/menu/MultiMarkets";
+import ProfitLoss from "./components/menu/ProfitLoss";
+import Home from "./components/menu/Home";
+import Statement from "./components/menu/Statement";
+import UnSetted from "./components/menu/UnSetted";
+import TermsAndConditions from "./components/menu/TermsAndConditions"; 
+import EditStakes from "./components/menu/EditStakes";
+import Profile from "./components/menu/profile";
+import Betting from "./components/Cricket/Betting";
 
 // Bottom Navigation Component
 const BottomNav = () => {
@@ -127,7 +128,8 @@ function App() {
               <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
               <Route path="/edit-stake" element={<EditStakes/>} />
               <Route path="/Profile" element={<Profile/>} />
-              <Route path="/" element={<Home />} />
+              <Route path="/Home" element={<Home />} />
+              <Route path="/Betting" element={<Betting/>} />
             </Routes>
           </div>
         </div>
