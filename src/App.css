@@ -114,14 +114,94 @@
   top: 0;
   background: #fdf6ee;
   color: #333;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
   transition: transform 0.3s ease-in-out;
   overflow-y: auto;
   z-index: 1000;
   padding-top: 20px;
-  transform: translateX(-100%);
+  transform: translateX(0%);
 }
 
+
+/* Logo container */
+.logo-container {
+  padding: 15px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.logo {
+  max-width: 180px;
+  height: auto;
+}
+
+/* Menu items */
+.menu-items {
+  padding: 5px 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 1px solid #f3f3f3;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.menu-item:hover {
+  background-color: #d49469;
+}
+
+.menu-item.active {
+  border-left: 4px solid #ff7700;
+  background-color: #f0f7ff;
+}
+
+.menu-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}
+
+/* Profile specific styling */
+.menu-item.profile {
+  font-weight: bold;
+}
+
+/* Mode toggle */
+.mode-toggle {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.mode-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  border-radius: 50%;
+  background: linear-gradient(to right, #333 0%, #333 50%, #fff 50%, #fff 100%);
+  border: 1px solid #ddd;
+}
+
+/* Theme colors based on the image */
+:root {
+  --primary-orange: #ff7700;
+  --primary-blue: #0066cc;
+  --light-bg: #ffffff;
+  --text-color: #333333;
+  --border-color: #f0f0f0;
+}
 .sidebar-header {
   display: flex;
   justify-content: center;
@@ -193,7 +273,6 @@
 }
 
 .dark-mode-toggle {
-  justify-content: center;
   cursor: pointer;
 }
 
@@ -203,15 +282,12 @@
 
 /* 7. Logout and Menu Toggle */
 .logout {
-  background: #ff9000;
   color: black;
   display: flex;
-  align-items: center;
   justify-content: start;
   font-weight: bold;
   text-transform: uppercase;
-  text-align: left;
-  padding: 10px 20px;
+  /* text-align: left; */
   border-radius: 10px;
   border: none;
   cursor: pointer;
@@ -469,4 +545,4 @@
     margin-left: 250px;
     width: calc(100% - 250px);
   }
-}
+} 

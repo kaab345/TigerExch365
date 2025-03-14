@@ -1,0 +1,36 @@
+.betting-rules-container {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.rule-section {
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.section-Rule {
+  color: black;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.section-content {
+  background-color: #fff;
+  padding: 10px 15px;
+  border-top: 1px solid #ddd;
+}
