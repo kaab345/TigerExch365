@@ -18,8 +18,13 @@ body::-webkit-scrollbar {
 
 /* Home Container Structure */
 .home-wrapper {
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #f9f3e1;
+  padding-bottom: 60px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .home-container {
@@ -27,8 +32,8 @@ body::-webkit-scrollbar {
   flex-direction: column;
   gap: 5px;
   padding: 5px 0 0;
-  background-color: #f9f3e1;
   max-width: 100%;
+  height: 100%;
 }
 
 /* Consistent Section Padding */
@@ -38,6 +43,7 @@ body::-webkit-scrollbar {
   overflow: hidden;
   padding: 0 10px;
   box-sizing: border-box;
+  margin-bottom: 5px;
 }
 
 /* Navigation Section */
@@ -46,14 +52,14 @@ body::-webkit-scrollbar {
   justify-content: flex-start;
   background-color: white;
   padding: 5px;
-  border-radius: px;
+  border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   overflow-x: auto;
   white-space: nowrap;
   scrollbar-width: none;
   -ms-overflow-style: none;
   margin: 0 10px;
-  padding: x 0;
+  -webkit-overflow-scrolling: touch;
 }
 
 .nav-section::-webkit-scrollbar {
@@ -106,7 +112,7 @@ body::-webkit-scrollbar {
   object-fit: contain;
 }
 
-/* Games Section - Consistent padding */
+/* Games Section */
 .games-container {
   display: flex;
   gap: 10px;
@@ -116,6 +122,10 @@ body::-webkit-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
   margin: 0 10px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  -webkit-overflow-scrolling: touch;
 }
 
 .games-container::-webkit-scrollbar {
@@ -145,26 +155,14 @@ body::-webkit-scrollbar {
   object-fit: cover;
 }
 
-/* Race Section - Fixed padding and margins */
+/* Race Section */
 .race-container {
   overflow: hidden;
   padding: 5px 10px !important;
   margin: 0 10px;
-}
-
-.race-title {
-  padding: 5px 10px !important;
-  color: #FFF;
-  text-transform: uppercase;
-  font-weight: 700;
-  background-color: #3c1404;
-  border-radius: 5px;
-  border: none !important;
-  letter-spacing: 1px;
-  font-size: 10px;
-  box-shadow: inset 0 0px 2px 0 rgba(0, 0, 0, 0.2);
-  margin-bottom: 0;
-  text-align: center;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .race-scroll {
@@ -174,6 +172,7 @@ body::-webkit-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
   padding: 10px 0;
+  -webkit-overflow-scrolling: touch;
 }
 
 .race-scroll::-webkit-scrollbar {
@@ -191,15 +190,24 @@ body::-webkit-scrollbar {
   color: inherit;
   min-width: 110px;
   flex-shrink: 0;
+  transition: transform 0.2s ease-in-out;
+}
+
+.chip:hover {
+  transform: scale(1.02);
+  background-color: #d0d0d0;
 }
 
 .race_detail {
   margin-left: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 .race_time {
   font-weight: 700;
   font-size: 13px;
+  color: #3c1404;
 }
 
 .race-name {
@@ -207,69 +215,159 @@ body::-webkit-scrollbar {
   color: #666;
 }
 
-/* Section Container - Consistent padding */
-.section-container {
-  max-width: 1200px;
-  margin: 0 auto;
+/* Sports Events Section */
+.section-Events {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 0 10px;
   padding: 10px;
-  box-sizing: border-box;
+  overflow: hidden;
 }
 
-/* section-Event */
 .section-Event {
-  background-color: #4b2e1e;
-  color: white;
   padding: 5px 10px !important;
-  display: block;
-  font-size: 10px;
-  box-shadow: inset 0 0 5px 0 #3c1404;
+  color: #FFF;
+  text-transform: uppercase;
   font-weight: 700;
+  background-color: #3c1404;
+  border-radius: 5px;
   border: none !important;
   letter-spacing: 1px;
-  border-radius: 5px;
+  font-size: 10px;
+  box-shadow: inset 0 0px 2px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
   text-align: center;
 }
 
-/* Event Card */
-.event-card {
-  background: white;
-  padding: 15px;
-  border-bottom: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 5px;
-  margin: 0 10px 10px 10px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-wrapper {
+    padding-bottom: 70px;
+  }
+  
+  .section-wrapper {
+    padding: 0 5px;
+  }
+  
+  .nav-section, .games-container, .race-container, .section-Events {
+    margin: 0 5px;
+  }
+
+  .nav-items li a {
+    font-size: 10px;
+    min-width: 70px;
+    width: 70px;
+    padding: 6px;
+  }
+
+  .nav-items li img {
+    height: 20px;
+    width: 20px;
+  }
+
+  .game-item img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .race-title, .section-Event {
+    font-size: 10px;
+    padding: 4px 8px !important;
+  }
+  
+  .chip {
+    min-width: 100px;
+    padding: 8px;
+  }
 }
 
-.event-time {
-  font-size: 14px;
-  color: #555;
+@media (max-width: 480px) {
+  .home-wrapper {
+    padding-bottom: 80px;
+  }
+  
+  .section-wrapper {
+    padding: 0 3px;
+  }
+  
+  .nav-section, .games-container, .race-container, .section-Events {
+    margin: 0 3px;
+  }
+
+  .nav-items li {
+    min-width: 60px;
+  }
+
+  .nav-items li a {
+    font-size: 9px;
+    min-width: 60px;
+    width: 60px;
+    padding: 5px;
+  }
+
+  .nav-items li img {
+    height: 18px;
+    width: 18px;
+  }
+
+  .game-item img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .chip {
+    min-width: 85px;
+    padding: 6px;
+  }
+
+  .race_time {
+    font-size: 11px;
+  }
+
+  .race-name {
+    font-size: 9px;
+  }
 }
 
-.event-title {
-  font-size: 16px;
-  font-weight: bold;
-}
+@media (max-width: 375px) {
+  .nav-items li {
+    min-width: 50px;
+  }
 
-.event-score {
-  color:  red;
-  font-weight: bold;
-}
+  .nav-items li a {
+    font-size: 8px;
+    min-width: 50px;
+    width: 50px;
+    padding: 4px;
+  }
 
-/* Badges */
-.badges {
-  display: flex;
-  gap: 8px;
-}
+  .nav-items li img {
+    height: 16px;
+    width: 16px;
+  }
 
-.badge {
-  background-color: #5a3827;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 14px;
+  .game-item img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .chip {
+    min-width: 75px;
+    padding: 5px;
+  }
+  
+  .race_detail {
+    margin-left: 3px;
+  }
+
+  .race_time {
+    font-size: 10px;
+  }
+
+  .race-name {
+    font-size: 8px;
+  }
 }
 
 /* Status Indicators */
@@ -310,194 +408,4 @@ body::-webkit-scrollbar {
 
 .red {
   background: #dc3545;
-}
-
-/* Responsive Design - Improved */
-@media (max-width: 768px) {
-  .section-wrapper {
-    padding: 0 5px;
-  }
-  
-  .nav-section, .games-container, .race-container, .section-header, .event-card, .grid-container {
-    margin: 0 5px 10px 5px;
-  }
-
-  .nav-items li a {
-    font-size: 10px;
-    min-width: 70px;
-    width: 70px;
-    padding: 6px;
-  }
-
-  .nav-items li img {
-    height: 20px;
-    width: 20px;
-  }
-
-  .game-item img {
-    width: 60px;
-    height: 60px;
-    border-width: 2px;
-  }
-  
-  .race-title {
-    font-size: 10px;
-    padding: 4px 8px !important;
-  }
-  
-  .chip {
-    min-width: 100px;
-    padding: 8px;
-  }
-
-  .event-card {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-  }
-
-  .badges {
-    margin-top: 8px;
-    flex-wrap: wrap;
-  }
-
-  .grid-container {
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  }
-
-  .grid-box {
-    height: 40px;
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .section-wrapper {
-    padding: 0 3px;
-  }
-  
-  .nav-section, .games-container, .race-container, .section-header, .event-card, .grid-container {
-    margin: 0 3px 8px 3px;
-  }
-
-  .nav-items {
-    gap: 5px;
-  }
-
-  .nav-items li {
-    min-width: 60px;
-  }
-
-  .nav-items li a {
-    font-size: 9px;
-    min-width: 60px;
-    width: 60px;
-    padding: 5px;
-  }
-
-  .nav-items li img {
-    height: 18px;
-    width: 18px;
-  }
-
-  .game-item img {
-    width: 50px;
-    height: 50px;
-    border-width: 2px;
-    padding: 3px;
-  }
-
-  .chip {
-    min-width: 85px;
-    padding: 6px;
-  }
-
-  .race_time {
-    font-size: 11px;
-  }
-
-  .race-name {
-    font-size: 9px;
-  }
-
-  .section-header {
-    font-size: 14px;
-    padding: 6px;
-  }
-
-  .event-time {
-    font-size: 11px;
-  }
-
-  .event-title {
-    font-size: 13px;
-  }
-
-  .event-score {
-    font-size: 13px;
-  }
-
-  .badge {
-    font-size: 10px;
-    padding: 2px 5px;
-  }
-
-  .grid-container {
-    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-    gap: 5px;
-  }
-
-  .grid-box {
-    height: 35px;
-    font-size: 12px;
-  }
-}
-
-/* For extra small devices */
-@media (max-width: 375px) {
-  .nav-items li {
-    min-width: 50px;
-  }
-
-  .nav-items li a {
-    font-size: 8px;
-    min-width: 50px;
-    width: 50px;
-    padding: 4px;
-  }
-
-  .nav-items li img {
-    height: 16px;
-    width: 16px;
-  }
-
-  .game-item img {
-    width: 45px;
-    height: 45px;
-  }
-
-  .chip {
-    min-width: 75px;
-    padding: 5px;
-  }
-  
-  .race_detail {
-    margin-left: 5px;
-  }
-
-  .race_time {
-    font-size: 10px;
-  }
-
-  .race-name {
-    font-size: 8px;
-  }
-  
-  .event-card {
-    padding: 8px;
-  }
-
-  .grid-container {
-    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-  }
 }

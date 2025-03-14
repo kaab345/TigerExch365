@@ -88,3 +88,71 @@ tbody tr:nth-child(even) {
     text-align: left;
   }
 }
+
+/* Table styles */
+.table-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation for loading spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Status badge styles */
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status-badge.pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+/* Hover effects */
+.hover-row:hover {
+  background-color: #f9fafb;
+  transition: background-color 0.2s ease;
+}
+
+/* Search input styles */
+.search-input {
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2);
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+  .table-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .table-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+}
+
+/* Sort icon transitions */
+.sort-icon {
+  transition: opacity 0.2s ease;
+}
+
+.sort-icon:hover {
+  opacity: 1 !important;
+}

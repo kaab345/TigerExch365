@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Betting.css";
 
-const Betting= () => {
+const Betting = () => {
   const matchData = [
     {
       id: 1,
@@ -126,39 +126,44 @@ const Betting= () => {
   ];
 
   return (
-    <div className="betting-table-container">
-      <table className="betting-table">
-        <tbody>
-          {matchData.map((match) => (
-            <tr key={match.id} className="match-row">
-              <td className="match-info">
-                <div className="match-date">{match.date} {match.time}</div>
-                <div className="match-league">{match.league}</div>
-                <div className="match-count">0</div>
-              </td>
-              <td className="match-icons">
-                {match.hasDesktop && <div className="icon desktop-icon"></div>}
-                {match.hasBM && <div className="icon bm-icon">BM</div>}
-                {match.hasF && <div className="icon f-icon">F</div>}
-              </td>
-              <td className="odds-container">
-                <div className="odds-group">
-                  <div className="back-cell">{match.odds[0].back}<div className="amount">{match.odds[0].backAmount}</div></div>
-                  <div className="lay-cell">{match.odds[0].lay}<div className="amount">{match.odds[0].layAmount}</div></div>
-                </div>
-                <div className="odds-group">
-                  <div className="back-cell">{match.odds[1].back}<div className="amount">{match.odds[1].backAmount}</div></div>
-                  <div className="lay-cell">{match.odds[1].lay}<div className="amount">{match.odds[1].layAmount}</div></div>
-                </div>
-                <div className="odds-group">
-                  <div className="back-cell">{match.odds[2].back}<div className="amount">{match.odds[2].backAmount}</div></div>
-                  <div className="lay-cell">{match.odds[2].lay}<div className="amount">{match.odds[2].layAmount}</div></div>
-                </div>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="betting-container">
+      <div className="betting-header">
+        <h1>BETTING</h1>
+      </div>
+      <div className="betting-table-container">
+        <table className="betting-table">
+          <tbody>
+            {matchData.map((match) => (
+              <tr key={match.id} className="match-row">
+                <td className="match-info">
+                  <div className="match-date">{match.date} {match.time}</div>
+                  <div className="match-league">{match.league}</div>
+                  <div className="match-count">0</div>
+                </td>
+                <td className="match-icons">
+                  {match.hasDesktop && <div className="icon desktop-icon"></div>}
+                  {match.hasBM && <div className="icon bm-icon">BM</div>}
+                  {match.hasF && <div className="icon f-icon">F</div>}
+                </td>
+                <td className="odds-container">
+                  <div className="odds-group">
+                    <div className="back-cell">{match.odds[0].back}<div className="amount">{match.odds[0].backAmount}</div></div>
+                    <div className="lay-cell">{match.odds[0].lay}<div className="amount">{match.odds[0].layAmount}</div></div>
+                  </div>
+                  <div className="odds-group">
+                    <div className="back-cell">{match.odds[1].back}<div className="amount">{match.odds[1].backAmount}</div></div>
+                    <div className="lay-cell">{match.odds[1].lay}<div className="amount">{match.odds[1].layAmount}</div></div>
+                  </div>
+                  <div className="odds-group">
+                    <div className="back-cell">{match.odds[2].back}<div className="amount">{match.odds[2].backAmount}</div></div>
+                    <div className="lay-cell">{match.odds[2].lay}<div className="amount">{match.odds[2].layAmount}</div></div>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

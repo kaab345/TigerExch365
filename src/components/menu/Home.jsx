@@ -47,16 +47,16 @@ const races1 = [
 
 // Second Set of Races
 const races2 = [
-  { link: "https://tiger365.me/client/race/34081689/1.240236182/1121156", flag: "https://flagcdn.com/h40/gb.png", time: "11:51 PM", name: "OR 450m" },
-  { link: "https://tiger365.me/client/race/34081648/1.240235328/1121156", flag: "https://flagcdn.com/h40/gb.png", time: "11:56 PM", name: "A1 500m" },
-  { link: "https://tiger365.me/client/race/34081837/1.240237977/1121156", flag: "https://flagcdn.com/h40/gb.png", time: "11:59 PM", name: "D4 275m" },
-  { link: "https://tiger365.me/client/race/34081877/1.240239024/1121156", flag: "https://flagcdn.com/h40/gb.png", time: "12:01 AM", name: "OR1 480m" },
-  { link: "https://tiger365.me/client/race/34081668/1.240235584/1121156", flag: "https://flagcdn.com/h40/gb.png", time: "12:07 AM", name: "D4 277m" },
-  { link: "https://tiger365.me/client/race/34081689/1.240236184/1121156", flag: "https://flagcdn.com/h40/gb.png", time: "12:09 AM", name: "OR 450m" },
-  { link: "https://tiger365.me/client/race/34081648/1.240235330/1121156", flag: "https://flagcdn.com/h40/gb.png", time: "12:12 AM", name: "A1 500m" },
-  { link: "https://tiger365.me/client/race/34081837/1.240237979/1121156", flag: "https://flagcdn.com/h40/gb.png", time: "12:16 AM", name: "B3 450m" },
-  { link: "https://tiger365.me/client/race/34081877/1.240239026/1121156", flag: "https://flagcdn.com/h40/gb.png", time: "12:18 AM", name: "OR1 480m" },
-  { link: "https://tiger365.me/client/race/34081668/1.240235586/1121156", flag: "https://flagcdn.com/h40/gb.png", time: "12:23 AM", name: "A4 491m" },
+  { link: "#", flag: "https://flagcdn.com/h40/gb.png", time: "11:51 PM", name: "OR 450m" },
+  { link: "#", flag: "https://flagcdn.com/h40/gb.png", time: "11:56 PM", name: "A1 500m" },
+  { link: "#", flag: "https://flagcdn.com/h40/gb.png", time: "11:59 PM", name: "D4 275m" },
+  { link: "#", flag: "https://flagcdn.com/h40/gb.png", time: "12:01 AM", name: "OR1 480m" },
+  { link: "#", flag: "https://flagcdn.com/h40/gb.png", time: "12:07 AM", name: "D4 277m" },
+  { link: "#", flag: "https://flagcdn.com/h40/gb.png", time: "12:09 AM", name: "OR 450m" },
+  { link: "#", flag: "https://flagcdn.com/h40/gb.png", time: "12:12 AM", name: "A1 500m" },
+  { link: "#", flag: "https://flagcdn.com/h40/gb.png", time: "12:16 AM", name: "B3 450m" },
+  { link: "#", flag: "https://flagcdn.com/h40/gb.png", time: "12:18 AM", name: "OR1 480m" },
+  { link: "#", flag: "https://flagcdn.com/h40/gb.png", time: "12:23 AM", name: "A4 491m" },
 ];
 
 // Sample Sports Data
@@ -101,9 +101,9 @@ const sportsData = [
 const Race = ({ race }) => {
   return (
     <a href={race.link || race.url} className="chip">
-      <img src={race.flag} alt="Horse" style={{ borderRadius: '0px', width: '36px', height: '24px' }} />
+      <img src={race.flag} alt="Race Flag" style={{ borderRadius: '0px', width: '36px', height: '24px' }} />
       <div className="race_detail">
-        <span className="race_time" style={{ fontWeight: '700' }}>{race.time}</span>
+        <span className="race_time">{race.time}</span>
         <span className="race-name">{race.name}</span>
       </div>
     </a>
@@ -114,7 +114,6 @@ const Race = ({ race }) => {
 const SportsEvents = () => {
   return (
     <div className="section-Events">
-      {/* Featured Events Section */}
       <div className="section-Event">FEATURED EVENTS</div>
       {sportsData.map((sport, index) => (
         <div key={index}>
@@ -130,44 +129,6 @@ const SportsEvents = () => {
                 <span className="badge">BM</span>
                 <span className="badge">F</span>
               </div>
-            </div>
-          ))}
-        </div>
-      ))}
-    </div>
-  );
-};
-
-// Sports Table Component
-const SportsTable = () => {
-  return (
-    <div className="section-container bg-gray-100 p-4">
-      {sportsData.map((sport, index) => (
-        <div key={index} className="mb-6">
-          <h2 className="bg-brown-900 text-white p-2 text-lg font-bold">{sport.category}</h2>
-          {sport.events.map((event, idx) => (
-            <div key={idx} className="bg-white p-3 border-b">
-              <p className="text-sm text-gray-700">{event.date}</p>
-              <p className="font-semibold text-md">{event.teams}</p>
-              <p className="text-red-500 font-bold">{event.score}</p>
-              {event.odds.length > 0 && (
-                <table className="w-full mt-2 border border-gray-300">
-                  <tbody>
-                    {event.odds.map((row, i) => (
-                      <tr key={i} className="border border-gray-300">
-                        {row.map((odd, j) => (
-                          <td
-                            key={j}
-                            className={`p-2 text-center border border-gray-300 ${j % 2 === 0 ? "bg-blue-400 text-white" : "bg-red-400 text-white"}`}
-                          >
-                            {odd}
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              )}
             </div>
           ))}
         </div>
@@ -203,41 +164,33 @@ const Home = () => {
             {games.map((game, index) => (
               <div key={index} className="game-item">
                 <a href={game.link} target="_blank" rel="noopener noreferrer">
-                  <img src={game.image} alt="Game Image" />
+                  <img src={game.image} alt="Game" />
                 </a>
               </div>
             ))}
           </div>
         </div>
 
-        {/* First Set of Races */}
+        {/* Horse Racing Section */}
         <div className="section-wrapper">
           <div className="race-container">
-            <h3 className="race-title">Upcoming Races (Set 1)</h3>
+            <h3 className="race-title">Horse Racing</h3>
             <div className="race-scroll">
-              {races1.length > 0 ? (
-                races1.map((race) => (
-                  <Race key={race.id} race={race} />
-                ))
-              ) : (
-                <p>No upcoming races available.</p>
-              )}
+              {races1.map((race) => (
+                <Race key={race.id} race={race} />
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Second Set of Races */}
+        {/* Greyhound Racing Section */}
         <div className="section-wrapper">
           <div className="race-container">
-            <h3 className="race-title">Upcoming Races (Set 2)</h3>
+            <h3 className="race-title">Greyhound Racing</h3>
             <div className="race-scroll">
-              {races2.length > 0 ? (
-                races2.map((race, index) => (
-                  <Race key={index} race={race} />
-                ))
-              ) : (
-                <p>No upcoming races available.</p>
-              )}
+              {races2.map((race, index) => (
+                <Race key={index} race={race} />
+              ))}
             </div>
           </div>
         </div>
@@ -245,11 +198,6 @@ const Home = () => {
         {/* Sports Events Section */}
         <div className="section-wrapper">
           <SportsEvents />
-        </div>
-
-        {/* Sports Table Section */}
-        <div className="section-wrapper">
-          <SportsTable />
         </div>
       </div>
     </div>

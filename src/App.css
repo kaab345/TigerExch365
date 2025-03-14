@@ -114,14 +114,13 @@
   top: 0;
   background: #fdf6ee;
   color: #333;
-  box-shadow: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
-  overflow-y: auto;
+  overflow-y: hidden;
   z-index: 1000;
   padding-top: 20px;
   transform: translateX(0%);
 }
-
 
 /* Logo container */
 .logo-container {
@@ -155,12 +154,14 @@
 }
 
 .menu-item:hover {
-  background-color: #d49469;
+  background-color: #ff8c00;
+  transform: scale(1.03);
+  color: white;
 }
 
 .menu-item.active {
-  border-left: 4px solid #ff7700;
-  background-color: #f0f7ff;
+  background: #ff8c00;
+  color: white;
 }
 
 .menu-icon {
@@ -232,8 +233,14 @@
 }
 
 .sidebar-item:hover {
-  background: #f4f4f4;
+  background: #ff8c00;
   transform: scale(1.03);
+  color: white;
+}
+
+.sidebar-item.active {
+  background: #ff8c00;
+  color: white;
 }
 
 .sidebar-link {
@@ -244,6 +251,36 @@
   gap: 10px;
   font-size: 16px;
   width: 100%;
+}
+
+/* Add a logo to the sidebar */
+.sidebar-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px;
+  margin-bottom: 5px;
+}
+
+.text-logo {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px;
+}
+
+.logo-orange {
+  color: #ff8c00;
+}
+
+.logo-blue {
+  color: #0a4ea2;
+}
+
+.sidebar-logo img {
+  max-width: 80%;
+  height: auto;
 }
 
 /* 6. Dark Mode Styles */
@@ -267,8 +304,7 @@
 }
 
 .dark-mode .sidebar-link,
-.dark-mode .dark-mode-toggle,
-.dark-mode .logout {
+.dark-mode .dark-mode-toggle {
   color: white !important;
 }
 
@@ -280,23 +316,7 @@
   font-weight: bold;
 }
 
-/* 7. Logout and Menu Toggle */
-.logout {
-  color: black;
-  display: flex;
-  justify-content: start;
-  font-weight: bold;
-  text-transform: uppercase;
-  /* text-align: left; */
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-}
-
-.logout:hover {
-  background: #d49469;
-}
-
+/* 7. Menu Toggle */
 .menu-toggle {
   position: fixed;
   top: 15px;
@@ -367,13 +387,28 @@
 }
 
 /* 10. Responsive Design */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .sidebar {
     transform: translateX(0);
+    overflow-y: hidden;
+    height: 100vh;
+    position: fixed;
   }
 
   .menu-toggle {
     display: none;
+  }
+  
+  /* Ensure content is pushed to the right of sidebar */
+  .main-content {
+    /* margin-left: 250px; */
+    width: calc(100% );
+  }
+  
+  /* Ensure the app container allows for proper layout */
+  .app-container {
+    display: flex;
+    min-height: 100vh;
   }
 }
 
@@ -385,6 +420,7 @@
   .sidebar {
     transform: translateX(-100%);
     width: 220px;
+    overflow-y: auto;
   }
 
   .sidebar.open {
@@ -401,7 +437,13 @@
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
   }
-
+  
+  /* Reset main content margin on mobile */
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  
   .top-bar {
     flex-direction: column;
     align-items: center;
@@ -510,22 +552,19 @@
 }
 
 .content-wrapper {
-  flex: 1;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow-x: hidden;
-  background: #f5f5f5;
-  width: calc(100% - 250px);
-  margin-left: 250px;
-  transition: margin-left 0.3s ease;
 }
 
 .main-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
+  /* margin-left: 250px; */
+  width: calc(100%);
+  transition: margin-left 0.3s ease-in-out;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 /* Responsive layouts */

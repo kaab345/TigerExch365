@@ -1,12 +1,10 @@
-
-
 .navbar {
   position: fixed;
-  top: 45px;
+  top: 0;
   width: 100%;
   background-color: #fdf7f1;
   color: black;
-  padding: 10px 16px;
+  padding: 12px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,6 +12,7 @@
   font-weight: bold;
   z-index: 999;
   font-size: 14px;
+  box-sizing: border-box;
 }
 
 .navbar button {
@@ -24,19 +23,27 @@
 }
 
 .market-container {
-  margin-top: 85px;
+  margin-top: 20px;
   padding: 16px;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .bookmaker {
   background-color: #fdf0d5;
-  padding: 10px;
+  padding: 12px;
   border-radius: 4px;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .market-table {
@@ -44,10 +51,14 @@
   margin-top: 10px;
   border-collapse: collapse;
   font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 20px;
 }
 
 .market-table td {
-  padding: 10px;
+  padding: 12px;
   text-align: center;
   font-weight: bold;
   border-bottom: 1px solid #ddd;
@@ -55,6 +66,7 @@
 
 .market-table td:first-child {
   text-align: left;
+  width: 60%;
 }
 
 .back-odds {
@@ -62,6 +74,7 @@
   color: black;
   font-weight: bold;
   border-radius: 4px;
+  width: 20%;
 }
 
 .lay-odds {
@@ -69,6 +82,7 @@
   color: black;
   font-weight: bold;
   border-radius: 4px;
+  width: 20%;
 }
 
 .suspended {
@@ -77,43 +91,83 @@
 }
 
 /* Responsive Design */
+@media screen and (min-width: 769px) {
+  .navbar {
+    top: 0;
+    left: 250px;
+    width: calc(100% - 250px);
+  }
+  
+  .market-container {
+    margin-top: 20px;
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    padding: 20px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .navbar {
-    top: 50px;
-    padding: 8px;
+    top: 0;
+    padding: 10px;
   }
+  
+  .market-container {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+  }
+  
   .market-table {
-    font-size: 12px;
+    font-size: 13px;
   }
+  
   .market-table td {
-    padding: 8px;
+    padding: 10px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .navbar {
     font-size: 12px;
-    padding: 6px;
+    padding: 8px;
   }
+  
   .market-container {
-    margin-top: 75px;
+    margin-top: 20px;
     padding: 10px;
+  }
+  
+  .bookmaker {
+    padding: 10px;
+  }
+  
+  .market-table td {
+    padding: 8px;
   }
 }
 
 @media screen and (max-width: 375px) { /* iPhone SE Specific */
   .navbar {
     font-size: 11px;
-    padding: 5px;
+    padding: 6px;
   }
+  
   .market-container {
-    margin-top: 70px;
+    margin-top: 20px;
     padding: 8px;
   }
+  
   .market-table {
     font-size: 11px;
   }
+  
   .market-table td {
     padding: 6px;
+  }
+  
+  .bookmaker {
+    padding: 8px;
+    font-size: 12px;
   }
 }

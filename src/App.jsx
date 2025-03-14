@@ -129,6 +129,7 @@ function App() {
                 <Route path="/Profile" element={<Profile/>} />
                 <Route path="/Home" element={<Home />} />
                 <Route path="/Betting" element={<Betting/>} />
+                <Route path="/rule" element={<Rule />} />
               </Routes>
             </div>
           </main>
@@ -144,6 +145,7 @@ function App() {
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const [darkMode, setDarkMode] = useState(false);
   const sidebarRef = useRef(null);
+  const location = useLocation();
   
   useEffect(() => {
     const savedTheme = localStorage.getItem("darkMode") === "true";
@@ -168,18 +170,19 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   }, [isOpen, toggleSidebar]);
   
   const toggleDarkMode = useCallback(() => {
-    setDarkMode((prev) => {
-      const newMode = !prev;
-      localStorage.setItem("darkMode", newMode);
-      document.documentElement.classList.toggle("dark", newMode);
-      return newMode;
-    });
-  }, []);
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    localStorage.setItem("darkMode", newDarkMode);
+    document.documentElement.classList.toggle("dark", newDarkMode);
+  }, [darkMode]);
   
-  const handleLogout = useCallback(() => {
-    alert("Logging out...");
-  }, []);
-  
+  const handleLogout = () => {
+    // Implement logout functionality here
+    console.log("Logging out...");
+    // For example: localStorage.removeItem("token");
+    // window.location.href = "/login";
+  };
+
   const menuItems = [
     { 
       name: "Home", 
@@ -214,11 +217,11 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   { 
       name: "Rules", 
       icon: <img className="menu-icon" src="https://tiger365.me/tiger365.me/images/terms.svg" alt="Rules" />, 
-      link: "/Rule" 
+      link: "/rule" 
   },
   { 
       name: "Edit Stakes", 
-      icon: <img className="menu-icon" src="https://tiger365.me/tiger365.me/images/edit.svg" />, 
+      icon: <img className="menu-icon" src="https://tiger365.me/tiger365.me/images/edit.svg" alt="Edit Stakes" />, 
       link: "/edit-stake" 
   },
   { 
@@ -233,9 +236,17 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       ref={sidebarRef} 
       className={`sidebar ${darkMode ? "dark-mode" : ""} ${isOpen ? "open" : ""}`}
     >
+      {/* Text-based logo at the top of sidebar */}
+      <div className="sidebar-logo">
+        <div className="text-logo">
+          <span className="logo-orange">PUNT</span>
+          <span className="logo-blue">EXCH</span>
+        </div>
+      </div>
+      
       <ul className="sidebar-menu">
         {menuItems.map((item, index) => (
-          <li key={index} className="sidebar-item">
+          <li key={index} className={`sidebar-item ${location.pathname === item.link ? 'active' : ''}`}>
             <Link to={item.link} className="sidebar-link" onClick={() => window.innerWidth < 768 && toggleSidebar()}>
               {item.icon} <span>{item.name}</span>
             </Link>
@@ -244,27 +255,27 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         
         {/* Dark Mode Toggle */}
         <li className="sidebar-item dark-mode-toggle" onClick={toggleDarkMode}>
-        <img 
-     src="https://tiger365.me/tiger365.me/images/contrast.svg" 
-     alt="Contrast Icon" 
-     className="menu-icon" 
-   />
-   
-   <span>Mode: {darkMode ? "Dark" : "Light"}</span>
- </li>
+          <div className="sidebar-link">
+            <img 
+              src="https://tiger365.me/tiger365.me/images/contrast.svg" 
+              alt="Contrast Icon" 
+              className="menu-icon" 
+            />
+            <span>Mode: {darkMode ? "Dark" : "Light"}</span>
+          </div>
+        </li>
+        
         {/* Logout Button */}
-        <li className="sidebar-item logout" onClick={handleLogout}>
-        <button className="sidebar-link">
-     <img 
-       src="https://tiger365.me/tiger365.me/images/logout.svg" 
-       alt="Contrast Icon" 
-       className="menu-icon" 
-     />
- 
-     <span>Logout</span>
-   </button>
- </li>
-          
+        <li className="sidebar-item">
+          <div className="sidebar-link" onClick={handleLogout}>
+            <img 
+              src="https://tiger365.me/tiger365.me/images/logout.svg" 
+              alt="Logout" 
+              className="menu-icon" 
+            />
+            <span>Logout</span>
+          </div>
+        </li>
       </ul>
     </div>
   );

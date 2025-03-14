@@ -1,3 +1,223 @@
+/* Container styles */
+.edit-stake-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Card styles */
+.stake-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stake-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Input styles */
+.stake-input {
+  position: relative;
+  width: 100%;
+}
+
+.stake-input input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.stake-input input:focus {
+  outline: none;
+  border-color: #f97316;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+}
+
+.stake-input input::-webkit-outer-spin-button,
+.stake-input input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Currency symbol */
+.currency-symbol {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  font-size: 0.875rem;
+  pointer-events: none;
+}
+
+/* Button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #f97316;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #ea580c;
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #4b5563;
+  border: 1px solid #e5e7eb;
+}
+
+.btn-secondary:hover {
+  color: #1f2937;
+  border-color: #9ca3af;
+}
+
+/* Error states */
+.error-container {
+  background-color: #fee2e2;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.error-message {
+  color: #dc2626;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Loading animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-icon {
+  animation: spin 1s linear infinite;
+}
+
+/* Guidelines section */
+.guidelines {
+  background-color: #f9fafb;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.guidelines-title {
+  color: #374151;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.guidelines-list {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+  color: #6b7280;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .edit-stake-container {
+    padding: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .stake-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Success message animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.success-message {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+/* Focus ring styles */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid #f97316;
+  outline-offset: 2px;
+}
+
+/* Hover effects */
+.stake-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stake-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
 .bg-amber-50 {
   background-color: #fffbeb;
 }
@@ -63,4 +283,143 @@ button:hover {
 
 .p-6 {
   padding: 1.5rem;
+}
+
+.edit-stake-header {
+  width: 100%;
+  text-align: center;
+  padding: 12px 0;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.edit-stake-header h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+}
+
+.stake-form-container {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.stake-input-group {
+  margin-bottom: 15px;
+}
+
+.stake-input-group label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.currency-symbol {
+  position: absolute;
+  left: 10px;
+  color: #666;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.stake-input-group input {
+  width: 100%;
+  padding: 10px;
+  padding-left: 25px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.stake-input-group input:focus {
+  border-color: #ff8c00;
+  box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.1);
+  outline: none;
+}
+
+.stake-input-group input:hover {
+  border-color: #ff8c00;
+}
+
+.stake-actions {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.update-button {
+  background: linear-gradient(145deg, #ffa500 0%, #ff8c00 100%);
+  color: #000;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 6px rgba(255, 140, 0, 0.2);
+  width: 100%;
+  max-width: 200px;
+}
+
+.update-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 140, 0, 0.3);
+}
+
+.update-button:active {
+  transform: translateY(1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .edit-stake-container {
+    padding: 10px;
+  }
+  
+  .stake-form-container {
+    padding: 15px;
+  }
+  
+  .edit-stake-header h1 {
+    font-size: 20px;
+  }
+  
+  .stake-input-group label {
+    font-size: 13px;
+  }
+  
+  .stake-input-group input {
+    font-size: 13px;
+    padding: 8px;
+    padding-left: 22px;
+  }
+  
+  .currency-symbol {
+    left: 8px;
+    font-size: 13px;
+  }
+  
+  .update-button {
+ 
+    font-size: 14px;
+  }
 }

@@ -1,147 +1,159 @@
 import React, { useState } from 'react';
-import './Profile.css'; // Import the CSS file
+import './Profile.css';
+
+const mockUser = {
+  personalInfo: {
+    username: 'tiger123',
+    name: 'John Smith',
+    email: 'john.smith@example.com',
+    phone: '+91 98765 43210',
+    joinDate: '2024-01-15',
+    status: 'active'
+  },
+  accountInfo: {
+    balance: 11500,
+    totalBets: 25,
+    winRate: '68%',
+    lastLogin: '2024-01-20 14:30'
+  }
+};
 
 const Profile = () => {
-  const [oldPassword, setOldPassword] = useState('');
-  const [newPassword, setNewPassword] = useState('');
-  const [retypePassword, setRetypePassword] = useState('');
+  const [isEditing, setIsEditing] = useState(false);
+  const [showPasswordForm, setShowPasswordForm] = useState(false);
+  const [password, setPassword] = useState({
+    current: '',
+    new: '',
+    confirm: ''
+  });
 
-  const handleSubmit = (e) => {
+  const handlePasswordSubmit = (e) => {
     e.preventDefault();
-    // Handle password update logic here
-    console.log('Updating password...');
+    // Handle password change logic here
+    setShowPasswordForm(false);
+    setPassword({ current: '', new: '', confirm: '' });
   };
 
   return (
     <div className="profile-container">
-      {/* Header */}
       <div className="profile-header">
-        <h1>PROFILE</h1>
+        <h1>MY PROFILE</h1>
       </div>
-      
-     
-      
-      {/* Main content */}
-      <div className="main-content">
-        <div className="content-wrapper">
-          {/* User details section */}
-          <div className="user-details-section">
-            <div className="section-header">
-              <h2>User Details</h2>
+
+      <div className="profile-content">
+        {/* Personal Information Section */}
+        <div className="profile-section">
+          <h2>Personal Information</h2>
+          <div className="profile-grid">
+            <div className="profile-field">
+              <span className="profile-label">Username</span>
+              <span className="profile-value">{mockUser.personalInfo.username}</span>
             </div>
-            
-            <ul className="details-list">
-              <li className="details-item">
-                <div className="item-content">
-                  <span className="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                  </span>
-                  <span>Name : DEMO123</span>
-                </div>
-              </li>
-              
-              <li className="details-item">
-                <div className="item-content">
-                  <span className="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                  </span>
-                  <span>Username : DEMO123</span>
-                </div>
-              </li>
-              
-              <li className="details-item">
-                <div className="item-content">
-                  <span className="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                    </svg>
-                  </span>
-                  <span>Chips : 0</span>
-                </div>
-              </li>
-              
-              <li className="details-item">
-                <div className="item-content">
-                  <span className="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </span>
-                  <span>P/L : 0.00</span>
-                </div>
-              </li>
-              
-              <li className="details-item">
-                <div className="item-content">
-                  <span className="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                    </svg>
-                  </span>
-                  <span>Exposure : 0.00</span>
-                </div>
-              </li>
-              
-              <li className="details-item">
-                <div className="item-content">
-                  <span className="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                    </svg>
-                  </span>
-                  <span>Balance : 0</span>
-                </div>
-              </li>
-            </ul>
+            <div className="profile-field">
+              <span className="profile-label">Full Name</span>
+              <span className="profile-value">{mockUser.personalInfo.name}</span>
+            </div>
+            <div className="profile-field">
+              <span className="profile-label">Email</span>
+              <span className="profile-value">{mockUser.personalInfo.email}</span>
+            </div>
+            <div className="profile-field">
+              <span className="profile-label">Phone</span>
+              <span className="profile-value">{mockUser.personalInfo.phone}</span>
+            </div>
+            <div className="profile-field">
+              <span className="profile-label">Join Date</span>
+              <span className="profile-value">{mockUser.personalInfo.joinDate}</span>
+            </div>
+            <div className="profile-field">
+              <span className="profile-label">Status</span>
+              <span className={`profile-status ${mockUser.personalInfo.status}`}>
+                {mockUser.personalInfo.status.toUpperCase()}
+              </span>
+            </div>
           </div>
-          
-          {/* Change password section */}
-          <div className="password-section">
-            <h2>CHANGE PASSWORD</h2>
-            
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label htmlFor="oldPassword">OLD PASSWORD</label>
-                <input
-                  id="oldPassword"
-                  type="password"
-                  placeholder="Old Password"
-                  value={oldPassword}
-                  onChange={(e) => setOldPassword(e.target.value)}
-                />
+        </div>
+
+        {/* Account Information Section */}
+        <div className="profile-section">
+          <h2>Account Information</h2>
+          <div className="profile-grid">
+            <div className="profile-field">
+              <span className="profile-label">Current Balance</span>
+              <span className="profile-value">₹{mockUser.accountInfo.balance.toLocaleString()}</span>
+            </div>
+            <div className="profile-field">
+              <span className="profile-label">Total Bets</span>
+              <span className="profile-value">{mockUser.accountInfo.totalBets}</span>
+            </div>
+            <div className="profile-field">
+              <span className="profile-label">Win Rate</span>
+              <span className="profile-value">{mockUser.accountInfo.winRate}</span>
+            </div>
+            <div className="profile-field">
+              <span className="profile-label">Last Login</span>
+              <span className="profile-value">{mockUser.accountInfo.lastLogin}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Password Change Section */}
+        <div className="profile-section">
+          <h2>Security</h2>
+          {showPasswordForm ? (
+            <form onSubmit={handlePasswordSubmit}>
+              <div className="profile-grid">
+                <div className="profile-field">
+                  <span className="profile-label">Current Password</span>
+                  <input
+                    type="password"
+                    className="profile-value"
+                    value={password.current}
+                    onChange={(e) => setPassword({ ...password, current: e.target.value })}
+                  />
+                </div>
+                <div className="profile-field">
+                  <span className="profile-label">New Password</span>
+                  <input
+                    type="password"
+                    className="profile-value"
+                    value={password.new}
+                    onChange={(e) => setPassword({ ...password, new: e.target.value })}
+                  />
+                </div>
+                <div className="profile-field">
+                  <span className="profile-label">Confirm New Password</span>
+                  <input
+                    type="password"
+                    className="profile-value"
+                    value={password.confirm}
+                    onChange={(e) => setPassword({ ...password, confirm: e.target.value })}
+                  />
+                </div>
               </div>
-              
-              <div className="form-group">
-                <label htmlFor="newPassword">NEW PASSWORD</label>
-                <input
-                  id="newPassword"
-                  type="password"
-                  placeholder="New Password"
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
-                />
-              </div>
-              
-              <div className="form-group">
-                <label htmlFor="retypePassword">RE-TYPE PASSWORD</label>
-                <input
-                  id="retypePassword"
-                  type="password"
-                  placeholder="Re-Type Password"
-                  value={retypePassword}
-                  onChange={(e) => setRetypePassword(e.target.value)}
-                />
-              </div>
-              
-              <div className="form-actions">
-                <button type="submit">UPDATE</button>
+              <div className="profile-actions">
+                <button type="submit" className="profile-button primary">
+                  Update Password
+                </button>
+                <button
+                  type="button"
+                  className="profile-button secondary"
+                  onClick={() => setShowPasswordForm(false)}
+                >
+                  Cancel
+                </button>
               </div>
             </form>
-          </div>
+          ) : (
+            <div className="profile-actions">
+              <button
+                className="profile-button primary"
+                onClick={() => setShowPasswordForm(true)}
+              >
+                Change Password
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

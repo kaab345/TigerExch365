@@ -3,156 +3,291 @@
 /* Container */
 .profit-loss-container {
   width: 100%;
-  max-width: 800px;
-  margin: auto;
-  background: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 16px;
-  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding: 15px;
 }
-.dark-mode .profit-loss-container{
-  background: black;
-  color : white;
-}
+
 /* Header */
 .profit-loss-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #ffebcc;
-  padding: 14px;
-  font-size: 20px;
-  font-weight: bold;
-  border-radius: 6px 6px 0 0;
-}
-
-.menu-button {
-  font-size: 22px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* Announcement Bar */
-/* .announcement-bar {
-  background: #1e3a8a;
-  color: white;
+  background: #ffffff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
-  padding: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 4px;
-  margin-top: 12px;
-} */
-
-/* Dropdown Sections */
-.select-container {
-  padding: 12px 0;
 }
 
-.select-label {
-  font-size: 16px;
+.profit-loss-header h1 {
+  margin: 0;
+  color: #333;
+  font-size: 24px;
   font-weight: bold;
+}
+
+/* Content */
+.profit-loss-content {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Filters Section */
+.filters-section {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.filter-label {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 14px;
+  font-weight: 600;
 }
 
-.select-box {
+.filter-input {
   width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 14px;
+  color: #333;
+  transition: border-color 0.2s;
+}
+
+.filter-input:focus {
+  outline: none;
+  border-color: #ff8c00;
+}
+
+.filter-select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+  background-color: white;
   cursor: pointer;
-  background: white;
+  transition: border-color 0.2s;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #ff8c00;
+}
+
+/* Summary Section */
+.summary-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.summary-card {
+  background: #f8f8f8;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+
+.summary-label {
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.summary-value {
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.summary-value.profit {
+  color: #2e7d32;
+}
+
+.summary-value.loss {
+  color: #c62828;
 }
 
 /* Table */
-.table-container {
+.profit-loss-table {
   width: 100%;
-  margin-top: 12px;
   border-collapse: collapse;
-  background: #fff8f2;
+  margin-top: 10px;
 }
 
-.table-container th {
-  background: #f97316;
+.profit-loss-table th {
+  background: #0a4ea2;
   color: white;
   padding: 12px;
   text-align: left;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 14px;
 }
 
-.table-container td {
+.profit-loss-table th:first-child {
+  border-top-left-radius: 6px;
+}
+
+.profit-loss-table th:last-child {
+  border-top-right-radius: 6px;
+}
+
+.profit-loss-table td {
   padding: 12px;
-  border-bottom: 1px solid #ddd;
-  font-size: 16px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #444;
 }
 
-.total-amount {
-  color: red;
-  font-weight: bold;
-  font-size: 18px;
+.profit-loss-table tr:last-child td {
+  border-bottom: none;
 }
 
+.profit-loss-table tr:hover td {
+  background: #f8f8f8;
+}
 
-/* Responsive Design for iPhone SE */
-@media (max-width: 375px) {
+.amount {
+  font-weight: 600;
+}
+
+.amount.profit {
+  color: #2e7d32;
+}
+
+.amount.loss {
+  color: #c62828;
+}
+
+.event-type {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.event-type.sports {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.event-type.casino {
+  background: #fce4ec;
+  color: #c2185b;
+}
+
+.empty-message {
+  text-align: center;
+  padding: 30px;
+  color: #666;
+  font-size: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .profit-loss-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 768px) {
   .profit-loss-container {
     padding: 10px;
-    max-width: 360px;
   }
 
-  .profit-loss-header {
-    font-size: 14px;
-    padding: 8px;
+  .profit-loss-content {
+    padding: 15px;
   }
 
-  /* .announcement-bar {
-    font-size: 11px;
-    padding: 5px;
-  } */
-
-  .select-box {
-    font-size: 12px;
-    padding: 5px;
+  .filters-section {
+    gap: 10px;
   }
 
-  .table-container th, .table-container td {
-    font-size: 12px;
-    padding: 6px;
-  }
-}
-
-/* Responsive Design for Desktop */
-@media (min-width: 1024px) {
-  .profit-loss-container {
-    max-width: 1000px;
-    padding: 24px;
+  .filter-group {
+    min-width: 150px;
   }
 
-  .profit-loss-header {
-    font-size: 22px;
-    padding: 16px;
+  .filter-label {
+    font-size: 13px;
   }
 
-  .announcement-bar {
-    font-size: 18px;
+  .filter-input,
+  .filter-select {
+    padding: 7px 10px;
+    font-size: 13px;
+  }
+
+  .summary-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .summary-card {
     padding: 12px;
   }
 
-  .select-box {
-    font-size: 18px;
+  .summary-label {
+    font-size: 13px;
+  }
+
+  .summary-value {
+    font-size: 16px;
+  }
+
+  .profit-loss-table th,
+  .profit-loss-table td {
     padding: 10px;
+    font-size: 13px;
   }
 
-  .table-container th, .table-container td {
-    font-size: 18px;
-    padding: 14px;
+  .event-type {
+    font-size: 12px;
+    padding: 3px 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profit-loss-container {
+    padding: 8px;
   }
 
-  .total-amount {
+  .profit-loss-header h1 {
     font-size: 20px;
+  }
+
+  .profit-loss-content {
+    padding: 12px;
+  }
+
+  .filter-group {
+    min-width: 100%;
+  }
+
+  .summary-section {
+    grid-template-columns: 1fr;
+  }
+
+  .profit-loss-table th,
+  .profit-loss-table td {
+    padding: 8px;
+    font-size: 12px;
   }
 }
