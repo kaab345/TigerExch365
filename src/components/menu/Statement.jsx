@@ -53,6 +53,7 @@ const Statement = () => {
     <div className="statement-container">
       <div className="statement-header">
         <h1>STATEMENT</h1>
+       
       </div>
 
       <div className="statement-content">

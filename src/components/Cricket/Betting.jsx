@@ -145,18 +145,44 @@ const Betting = () => {
                   {match.hasBM && <div className="icon bm-icon">BM</div>}
                   {match.hasF && <div className="icon f-icon">F</div>}
                 </td>
-                <td className="odds-container">
-                  <div className="odds-group">
-                    <div className="back-cell">{match.odds[0].back}<div className="amount">{match.odds[0].backAmount}</div></div>
-                    <div className="lay-cell">{match.odds[0].lay}<div className="amount">{match.odds[0].layAmount}</div></div>
-                  </div>
-                  <div className="odds-group">
-                    <div className="back-cell">{match.odds[1].back}<div className="amount">{match.odds[1].backAmount}</div></div>
-                    <div className="lay-cell">{match.odds[1].lay}<div className="amount">{match.odds[1].layAmount}</div></div>
-                  </div>
-                  <div className="odds-group">
-                    <div className="back-cell">{match.odds[2].back}<div className="amount">{match.odds[2].backAmount}</div></div>
-                    <div className="lay-cell">{match.odds[2].lay}<div className="amount">{match.odds[2].layAmount}</div></div>
+                <td className="odds-container-cell">
+                  <div className="odds-container">
+                    <div className="odds-group">
+                      <div className="back-cell">{match.odds[0].back}
+                        {match.odds[0].backAmount !== "-" && match.odds[0].backAmount && 
+                          <div className="amount">{match.odds[0].backAmount}</div>
+                        }
+                      </div>
+                      <div className="lay-cell">{match.odds[0].lay}
+                        {match.odds[0].layAmount !== "-" && match.odds[0].layAmount && 
+                          <div className="amount">{match.odds[0].layAmount}</div>
+                        }
+                      </div>
+                    </div>
+                    <div className="odds-group">
+                      <div className="back-cell">{match.odds[1].back}
+                        {match.odds[1].backAmount !== "-" && match.odds[1].backAmount && 
+                          <div className="amount">{match.odds[1].backAmount}</div>
+                        }
+                      </div>
+                      <div className="lay-cell">{match.odds[1].lay}
+                        {match.odds[1].layAmount !== "-" && match.odds[1].layAmount && 
+                          <div className="amount">{match.odds[1].layAmount}</div>
+                        }
+                      </div>
+                    </div>
+                    <div className="odds-group">
+                      <div className="back-cell">{match.odds[2].back}
+                        {match.odds[2].backAmount !== "-" && match.odds[2].backAmount && 
+                          <div className="amount">{match.odds[2].backAmount}</div>
+                        }
+                      </div>
+                      <div className="lay-cell">{match.odds[2].lay}
+                        {match.odds[2].layAmount !== "-" && match.odds[2].layAmount && 
+                          <div className="amount">{match.odds[2].layAmount}</div>
+                        }
+                      </div>
+                    </div>
                   </div>
                 </td>
               </tr>
