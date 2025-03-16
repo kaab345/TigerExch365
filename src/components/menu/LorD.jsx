@@ -8,10 +8,10 @@ const LorD = () => {
   };
 
   return (
-    <section className="w-full">
+    <section className="w-full container mx-auto p-4">
       <div className="w-full">
         {/* Header Row with Lena and Dena on same line with 10px gap */}
-        <div className="flex flex-col sm:flex-row w-full gap-0 sm:gap-2.5 mb-0">
+        <div className="flex flex-col sm:flex-row w-full gap-2 p-2 mb-0">
           <div className="w-full sm:w-1/2 border border-gray-300 bg-yellow-400 text-black p-2 font-bold text-base flex justify-between mb-2.5 sm:mb-0">
             <div>Lena</div>
             <div className="text-red-600 text-right" id="lenaTotal">0.00</div>
@@ -23,7 +23,7 @@ const LorD = () => {
         </div>
         
         {/* Tables Row with 10px gap */}
-        <div className="flex flex-col sm:flex-row w-full gap-0 sm:gap-2.5">
+        <div className="flex flex-col sm:flex-row w-full gap-2 p-2">
           {/* Lena Table */}
           <div className="w-full sm:w-1/2 mb-2.5 sm:mb-0">
             <div className="overflow-x-auto border border-gray-300">
@@ -62,7 +62,7 @@ const LorD = () => {
         </div>
         
         {/* Clear Section */}
-        <div className="flex flex-col sm:flex-row w-full mt-4">
+        <div className="flex flex-col sm:flex-row w-full mt-4 p-2">
           <div className="w-full sm:w-1/2">
             <div 
               className="border border-gray-300 bg-yellow-400 text-black p-2 font-bold text-base flex justify-between cursor-pointer"

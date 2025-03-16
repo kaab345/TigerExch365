@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
-import { FaChartLine, FaList, FaUser, FaMoon, FaSun, FaSignOutAlt, FaBars, FaStopwatch, FaStar, FaHome, FaDice, FaGamepad } from "react-icons/fa";
+import { FaChartLine, FaList, FaUser, FaMoon, FaSun, FaSignOutAlt, FaBars, FaStopwatch, FaStar, FaHome, FaDice, FaGamepad, FaTimes } from "react-icons/fa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faUser, 
@@ -26,6 +26,7 @@ import EditStakes from "./components/menu/EditStakes";
 import Profile from "./components/menu/Profile";
 import Betting from "./components/Cricket/Betting";
 import Rule from "./components/menu/Rule";
+import UserForm from "./components/menu/UserForm.jsx"; // added import for UserForm
 
 // Bottom Navigation Component
 const BottomNav = () => {
@@ -128,11 +129,15 @@ function App() {
                   Exp : <span className="highlight">{expose?.toFixed(2) || "0.00"}</span>
                 </div>
               </div>
-              <div class="sidebar-logo"><div class="text-logo"><span class="logo-orange">PUNT</span><span class="logo-blue">EXCH</span></div></div>
+              <div className="sidebar-logo">
+                <div className="text-logo">
+                  <span className="logo-orange">PUNT</span>
+                  <span className="logo-blue">EXCH</span>
+                </div>
+              </div>
               <div className="announcement ticker">
                 <p>
-                  We have launched 4500+ games in new I-casino. Please note: In new
-                  I-casino, 1 point = 100 points.
+                  We have launched 4500+ games in new I-casino. Please note: In new I-casino, 1 point = 100 points.
                 </p>
               </div>
             </header>
@@ -155,10 +160,10 @@ function App() {
                 <Route path="/Profile" element={<Profile/>} />
                 <Route path="/Betting" element={<Betting/>} />
                 <Route path="/rule" element={<Rule />} />
-                {/* Add routes for other dropdown items */}
                 <Route path="/myledger/:id/:type/:pageNumber/:pageSize/:sortOrder" element={<div>My Ledger</div>} />
                 <Route path="/subledger/:id" element={<div>Lena Aur Dena</div>} />
                 <Route path="/ss-users" element={<div>SS Users</div>} />
+                <Route path="/userform" element={<UserForm />} /> {/* added route for UserForm */}
               </Routes>
             </div>
           </main>
@@ -173,27 +178,9 @@ function App() {
 // Updated Sidebar Component
 const Sidebar = ({ isOpen, toggleSidebar, darkMode, toggleDarkMode, handleLogout }) => {
   const [expandedDropdown, setExpandedDropdown] = useState(null);
-  const sidebarRef = useRef(null);
   const location = useLocation();
 
-  const toggleDropdown = (index) => {
-    setExpandedDropdown(expandedDropdown === index ? null : index);
-  };
-
-  // Close sidebar when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (sidebarRef.current && !sidebarRef.current.contains(event.target) && window.innerWidth < 768) {
-        toggleSidebar();
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [toggleSidebar]);
-
+  // Add menuItems definition here
   const menuItems = [
     {
       name: "Home",
@@ -207,35 +194,37 @@ const Sidebar = ({ isOpen, toggleSidebar, darkMode, toggleDarkMode, handleLogout
     },
     {
       name: "Users",
-      icon: <FontAwesomeIcon icon={faUser} className="menu-icon" />,
-      hasDropdown: true,
-      dropdownItems: [
+      icon: <FontAwesomeIcon icon={faUsers} className="menu-icon" />,
+      link: "#",
+      isParent: true,
+      children: [
         {
           name: "Create Users",
-          link: "/create-users", // Fixed link to match route
-          icon: <FontAwesomeIcon icon={faPlus} className="menu-icon" />
+          icon: <FontAwesomeIcon icon={faPlus} className="menu-icon" />,
+          link: "/create-users",
         },
         {
-          name: "SS",
+          name: "SS Users",
+          icon: <FontAwesomeIcon icon={faUsers} className="menu-icon" />,
           link: "/SS",
-          icon: <FontAwesomeIcon icon={faUsers} className="menu-icon" />
         }
       ]
     },
     {
       name: "Ledger",
       icon: <FontAwesomeIcon icon={faFutbol} className="menu-icon" />,
-      hasDropdown: true,
-      dropdownItems: [
+      link: "#",
+      isParent: true,
+      children: [
         {
           name: "My Ledger",
+          icon: <FontAwesomeIcon icon={faFutbol} className="menu-icon" />,
           link: "/My-ledger",
-          icon: <FontAwesomeIcon icon={faFutbol} className="menu-icon" />
         },
         {
           name: "Lena Aur Dena",
+          icon: <FontAwesomeIcon icon={faFutbol} className="menu-icon" />,
           link: "/LorD",
-          icon: <FontAwesomeIcon icon={faFutbol} className="menu-icon" />
         }
       ]
     },
@@ -276,60 +265,73 @@ const Sidebar = ({ isOpen, toggleSidebar, darkMode, toggleDarkMode, handleLogout
     },
   ];
 
+  const toggleDropdown = (index) => {
+    setExpandedDropdown(expandedDropdown === index ? null : index);
+  };
+
+  // Remove the useEffect and sidebarRef since we don't want click outside behavior
+
   return (
     <div 
-      ref={sidebarRef} 
       className={`sidebar ${darkMode ? "dark-mode" : ""} ${isOpen ? "open" : ""}`}
     >
-      {/* Text-based logo at the top of sidebar */}
       <div className="sidebar-logo">
         <div className="text-logo">
           <span className="logo-orange">PUNT</span>
           <span className="logo-blue">EXCH</span>
         </div>
+        {isOpen && (
+          <button 
+            className="sidebar-close-btn" 
+            onClick={toggleSidebar} 
+            aria-label="Close Sidebar"
+          >
+            <FaTimes />
+          </button>
+        )}
       </div>
       
       <ul className="sidebar-menu">
-        {menuItems.map((item, index) => (
-          <li key={index} className={`sidebar-item ${location.pathname === item.link ? 'active' : ''}`}>
-            {item.hasDropdown ? (
-              <div className="dropdown-container">
-                <div 
-                  className="sidebar-link dropdown-toggle" 
-                  onClick={() => toggleDropdown(index)}
-                >
-                  {item.icon} 
-                  <span>{item.name}</span>
-                  <FontAwesomeIcon 
-                    icon={expandedDropdown === index ? faChevronUp : faChevronDown} 
-                    className="dropdown-icon" 
-                  />
-                </div>
-                
-                <ul className={`dropdown-menu ${expandedDropdown === index ? 'show' : ''}`}>
-                  {item.dropdownItems.map((dropdownItem, dropdownIndex) => (
-                    <li key={dropdownIndex} className={`dropdown-item ${location.pathname === dropdownItem.link ? 'active' : ''}`}>
-                      <Link 
-                        to={dropdownItem.link} 
-                        className="dropdown-link"
-                        onClick={() => window.innerWidth < 768 && toggleSidebar()}
-                      >
-                        {dropdownItem.icon}
-                        <span>{dropdownItem.name}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : (
-              <Link to={item.link} className="sidebar-link" onClick={() => window.innerWidth < 768 && toggleSidebar()}>
+        {menuItems.flatMap((item, index) => {
+          const itemsArr = [];
+          // Render parent item
+          itemsArr.push(
+            <li key={`parent-${index}`} className={`sidebar-item ${location.pathname === item.link ? 'active' : ''} ${item.isChild ? 'menu-child' : ''} ${item.isParent ? 'menu-parent' : ''}`}>
+              <Link 
+                to={item.link}
+                className="sidebar-link"
+                onClick={(e) => {
+                  if (item.isParent) {
+                    e.preventDefault();
+                    toggleDropdown(index);
+                  } else if (window.innerWidth < 768) {
+                    toggleSidebar();
+                  }
+                }}
+              >
                 {item.icon} <span>{item.name}</span>
               </Link>
-            )}
-          </li>
-        ))}
+            </li>
+          );
+          // If parent is expanded, insert its children as separate list items
+          if (item.isParent && expandedDropdown === index) {
+            item.children.forEach((child, childIndex) => {
+              itemsArr.push(
+                <li key={`child-${index}-${childIndex}`} className="sidebar-item menu-child">
+                  <Link 
+                    to={child.link} 
+                    className="sidebar-link"
+                    onClick={() => window.innerWidth < 768 && toggleSidebar()}
+                  >
+                    {child.icon} <span>{child.name}</span>
+                  </Link>
+                </li>
+              );
+            });
+          }
+          return itemsArr;
+        })}
         
-        {/* Dark Mode Toggle */}
         <li className="sidebar-item dark-mode-toggle" onClick={toggleDarkMode}>
           <div className="sidebar-link">
             <img 
@@ -341,7 +343,6 @@ const Sidebar = ({ isOpen, toggleSidebar, darkMode, toggleDarkMode, handleLogout
           </div>
         </li>
         
-        {/* Logout Button */}
         <li className="sidebar-item">
           <div className="sidebar-link" onClick={handleLogout}>
             <img 

@@ -37,12 +37,13 @@
     width: 100%;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 1000; /* Adjusted to be below menu-toggle */
     height: auto;
     min-height: 100px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     margin-left: 0;
     padding-left: 0;
+    pointer-events: auto !important; /* Enable pointer events */
   }
 
 .top-bar {
@@ -57,6 +58,7 @@
   flex-wrap: wrap;
   width: 100%;
   height: 20px;
+  pointer-events: auto;
 }
 
 .balance,
@@ -64,6 +66,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
+  pointer-events: auto;
 }
 
 .nav-bar {
@@ -71,6 +74,7 @@
   justify-content: center;
   align-items: center;
   padding: 5px 0;
+  pointer-events: auto;
 }
 
 .logo {
@@ -78,6 +82,7 @@
   max-width: 120px;
   object-fit: contain;
   transition: all 0.2s ease;
+  pointer-events: auto;
 }
 .logo:hover {
   transform: scale(1.1);
@@ -116,10 +121,16 @@
   color: #333;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
-  overflow-y: hidden;
-  z-index: 1000;
+  overflow-y: auto;
+  z-index: 9998; /* Adjusted to be between header and menu-toggle */
   padding-top: 20px;
-  transform: translateX(0%);
+  transform: translateX(0); /* Remove default transform */
+  pointer-events: none;
+}
+
+.sidebar.open {
+  transform: translateX(0); /* Show when open class is added */
+  pointer-events: auto;
 }
 
 /* Logo container */
@@ -139,6 +150,9 @@
 /* Menu items */
 .menu-items {
   padding: 5px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .menu-item {
@@ -148,9 +162,11 @@
   color: #333;
   font-size: 14px;
   font-weight: 500;
-  border-bottom: 1px solid #f3f3f3;
   text-decoration: none;
   transition: background-color 0.2s;
+  margin: 0 5px;
+  border-radius: 4px;
+  pointer-events: auto;
 }
 
 .menu-item:hover {
@@ -217,6 +233,7 @@
   list-style: none;
   padding: 10px;
   width: 100%;
+  pointer-events: auto;
 }
 
 .sidebar-item {
@@ -230,6 +247,8 @@
   margin-bottom: 10px;
   font-weight: bold;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  pointer-events: auto;
 }
 
 .sidebar-item:hover {
@@ -251,6 +270,7 @@
   gap: 10px;
   font-size: 16px;
   width: 100%;
+  pointer-events: auto;
 }
 
 /* Add a logo to the sidebar */
@@ -281,6 +301,100 @@
 .sidebar-logo img {
   max-width: 80%;
   height: auto;
+}
+
+/* Dropdown styles for sidebar */
+.dropdown-container {
+  width: 100%;
+}
+
+.dropdown-toggle {
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
+}
+
+.dropdown-icon {
+  margin-left: auto;
+  color: #fff;
+  background-color: #3b5c3f;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.dropdown-menu {
+  list-style: none;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  width: 100%;
+  margin: 0;
+}
+
+.dropdown-menu.show {
+  max-height: 500px;
+}
+
+.dropdown-item {
+  background: white;
+  border-radius: 10px;
+  padding: 0;
+  margin-bottom: 10px;
+  font-weight: bold;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  pointer-events: auto;
+}
+
+.dropdown-item:hover {
+  background: #ff8c00;
+  transform: scale(1.03);
+  color: white;
+}
+
+.dropdown-item.active {
+  background: #ff8c00;
+  color: white;
+}
+
+.dropdown-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  padding: 12px 15px;
+  width: 100%;
+  pointer-events: auto;
+}
+
+.dropdown-link:hover {
+  color: inherit;
+}
+
+/* Dark mode dropdown styles */
+.dark-mode .dropdown-item {
+  background: #222 !important;
+  color: white;
+}
+
+.dark-mode .dropdown-item:hover {
+  background: #333 !important;
+}
+
+.dark-mode .dropdown-link {
+  color: white;
+}
+
+.dark-mode .dropdown-icon {
+  background-color: #4a7450;
 }
 
 /* 6. Dark Mode Styles */
@@ -319,19 +433,23 @@
 /* 7. Menu Toggle */
 .menu-toggle {
   position: fixed;
-  top: 15px;
   left: 15px;
-  background: white;
+  top: 5px; /* Added top position */
+  background: transparent;
   color: black;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
   font-size: 24px;
   border: none;
   cursor: pointer;
   padding: 10px;
+  padding-bottom: 0px;
   border-radius: 5px;
-  z-index: 1101;
-  transition: background 0.3s ease-in-out;
+  z-index: 9999; /* Highest z-index */
   display: none;
   width: auto;
+  pointer-events: auto !important; /* Ensure clicks are registered */
 }
 
 /* 8. Bottom Navigation */
@@ -389,8 +507,7 @@
 /* 10. Responsive Design */
 @media screen and (min-width: 769px) {
   .sidebar {
-    transform: translateX(0);
-    overflow-y: hidden;
+    transform: translateX(0); /* Always show on desktop */
     height: 100vh;
     position: fixed;
   }
@@ -412,32 +529,50 @@
   }
 }
 
+.sidebar-close-btn{
+  background-color: transparent !important;
+  color: black !important;
+  font-size: 25px;
+  display: flex;  
+  justify-content: center;
+  bottom:50%;
+  padding: 0px;
+  margin: 0px 0px 0  20px ;
+}
+
 @media screen and (max-width: 768px) {
   .menu-toggle {
     display: flex;
+    position: fixed;
+    /* top: 15px; */
+    z-index: 9999;
   }
   
   .sidebar {
-    transform: translateX(-100%);
-    width: 220px;
+    transform: translateX(-100%); /* Hide by default on mobile */
+    width: 250px;
     overflow-y: auto;
+    z-index: 9998;
+    pointer-events: none;
   }
 
   .sidebar.open {
-    transform: translateX(0);
+    transform: translateX(0); /* Show when open class is added */
+    pointer-events: auto;
   }
 
   .sidebar.open::before {
     content: "";
     position: fixed;
     top: 0;
-    left: 220px;
-    width: calc(100% - 220px);
+    left: 250px;
+    width: calc(100% - 250px);
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    z-index: -1; /* Below sidebar but above other content */
+    pointer-events: none; /* Prevent clicks on the overlay */
   }
-  
+ 
   /* Reset main content margin on mobile */
   .main-content {
     margin-left: 0;
@@ -455,19 +590,20 @@
 /* 11. Ultra-Small Screen Adjustments */
 @media screen and (max-width: 375px) {
   .sidebar {
-    width: 200px;
+    width: 220px;
   }
 
   .sidebar.open::before {
-    left: 200px;
-    width: calc(100% - 200px);
+    left: 220px;
+    width: calc(100% - 220px);
   }
 
   .menu-toggle {
-    top: 10px;
+    /* top: 10px; */
     left: 10px;
     font-size: 20px;
     padding: 8px;
+    padding-bottom: 0%;
   }
 
   .sidebar-item {
@@ -489,7 +625,7 @@
   }
 
   .top-bar {
-    font-size: 12px;
+    font-size: 15px;
   }
 
   .announcement.ticker {
@@ -498,7 +634,7 @@
   }
 
   .announcement.ticker p {
-    animation-duration: 8s;
+    animation-duration: 10s;
   }
 }
 @media (max-width: 480px) {
@@ -508,7 +644,7 @@
 
   .balance,
   .exposure {
-    font-size: 10px;
+    font-size: 15px;
   }
 
   .logo {
@@ -516,8 +652,22 @@
     max-width: 100px;
   }
 
+  .sidebar-close-btn{
+    background-color: transparent !important;
+    color: black !important;
+    font-size: 22px;
+    display: flex;  
+    justify-content: center;
+    bottom:50%;
+    padding: 0px;
+    margin: 0px 0px 0  15px ;
+  }
   .announcement.ticker {
     font-size: 9px;
+    padding: 5px;
+  }
+
+  .main-content {
     padding: 5px;
   }
 }
@@ -543,6 +693,12 @@
   }
 }
 
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .main-content {
+    padding: 10px;
+  }
+}
+
 /* Global styles */
 .app-container {
   display: flex;
@@ -562,7 +718,6 @@
   width: calc(100%);
   transition: margin-left 0.3s ease-in-out;
   min-height: 100vh;
-  padding: 20px;
   box-sizing: border-box;
   overflow-x: hidden;
 }
@@ -584,4 +739,42 @@
     margin-left: 250px;
     width: calc(100% - 250px);
   }
-} 
+}
+
+/* Custom scrollbar for sidebar */
+.sidebar::-webkit-scrollbar {
+  width: 2px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 1px;
+}
+
+/* Firefox support */
+.sidebar {
+  scrollbar-width: thin;
+  scrollbar-color: #999 transparent;
+}
+
+/* Children button styles for ledger and users */
+.sidebar-item.menu-child {
+  background-color: #f4e3c2;
+}
+.sidebar-item.menu-child:hover {
+  background-color: orange;
+}
+.sidebar-item.menu-child:active {
+  background-color: orange;
+}
+
+.menu-item.active,
+.sidebar-item.active {
+  background: orange;
+  color: white;
+}
+

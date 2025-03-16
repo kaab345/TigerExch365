@@ -22,15 +22,15 @@ const My_ledger = () => {
   };
   
   return (
-    <div className="lena-dena-container">
+    <div className="lena-dena-container p-4 sm:p-6 container mx-auto">
       {/* Header */}
-      <div className="lena-dena-header">
+      <div className="lena-dena-header text-xl font-semibold mb-4">
         Company Lena Dena
       </div>
       
       {/* Filter section */}
-      <div className="filter-container">
-        <div className="form-group">
+      <div className="filter-container grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+        <div className="form-group w-full">
           <label htmlFor="dateFrom">Date From</label>
           <input 
             id="dateFrom"
@@ -41,7 +41,7 @@ const My_ledger = () => {
           />
         </div>
         
-        <div className="form-group">
+        <div className="form-group w-full">
           <label htmlFor="dateTo">Date To</label>
           <input 
             id="dateTo"
@@ -52,7 +52,7 @@ const My_ledger = () => {
           />
         </div>
         
-        <div className="form-group">
+        <div className="form-group w-full">
           <label htmlFor="entryType">Entry Type</label>
           <select 
             id="entryType"
@@ -74,22 +74,22 @@ const My_ledger = () => {
       </div>
       
       {/* Summary section */}
-      <div className="summary-container">
-        <div className="summary-item">
+      <div className="summary-container grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+        <div className="summary-item text-center">
           <span className="summary-label">Lena:</span>
           <div className="summary-value white-text">
             {lenaTotal}
           </div>
         </div>
         
-        <div className="summary-item">
+        <div className="summary-item text-center">
           <span className="summary-label">Dena:</span>
           <div className="summary-value green-text">
             {denaTotal}
           </div>
         </div>
         
-        <div className="summary-item">
+        <div className="summary-item text-center">
           <span className="summary-label">Balance:</span>
           <div className="summary-value white-text">
             {balanceText}
@@ -98,8 +98,8 @@ const My_ledger = () => {
       </div>
       
       {/* Table section */}
-      <div className="table-container">
-        <table className="data-table">
+      <div className="table-container overflow-x-auto mt-4 rounded border">
+        <table className="data-table min-w-full">
           <thead>
             <tr>
               <th className="dark orange-header">Date</th>
@@ -129,7 +129,7 @@ const My_ledger = () => {
       </div>
       
       {/* Pagination */}
-      <div className="pagination-container">
+      <div className="pagination-container flex justify-center items-center mt-4">
         <div className="page-item disabled">«</div>
         <div className="page-item disabled">‹</div>
         <div className="page-item active">1</div>

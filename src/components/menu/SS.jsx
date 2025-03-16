@@ -3,21 +3,23 @@ import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-r
 
 const SS = () => {
   return (
-    <div className="w-full border border-gray-300">
-      {/* Search and New Member row with proper spacing */}
-      <div className="flex justify-between items-center p-2 bg-white">
-        <div className="flex gap-2">
+    <div className="w-full border border-gray-300 p-4">
+      {/* Search and New Member row */}
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-2 bg-white p-2 rounded">
+        <div className="flex gap-2 w-full sm:w-auto">
           <input
             type="text"
             placeholder="Search..."
-            className="px-2 py-1 border border-gray-300 rounded-sm"
-            style={{ width: "170px", height: "32px" }}
+            className="px-2 py-1 border border-gray-300 rounded-sm w-full sm:w-40"
           />
-          <button className="bg-gray-600 text-white px-4 py-1" style={{ height: "32px" }}>
+          <button className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-1 rounded transition-colors">
             Search
           </button>
         </div>
-        <button className="bg-gray-600 text-white px-4 py-1" style={{ height: "32px" }}>
+        <button 
+          className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-1 rounded transition-colors w-full sm:w-auto"
+          onClick={() => window.location.href = '/create-users'}
+        >
           New Member
         </button>
       </div>

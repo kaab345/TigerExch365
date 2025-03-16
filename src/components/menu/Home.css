@@ -41,7 +41,7 @@ body::-webkit-scrollbar {
   width: 100%;
   position: relative;
   overflow: hidden;
-  padding: 0 10px;
+  /* padding: 0 10px; */
   box-sizing: border-box;
   margin-bottom: 5px;
 }
@@ -246,9 +246,9 @@ body::-webkit-scrollbar {
     padding-bottom: 70px;
   }
   
-  .section-wrapper {
-    padding: 0 5px;
-  }
+  /* .section-wrapper {
+    padding: 0 1px;
+  } */
   
   .nav-section, .games-container, .race-container, .section-Events {
     margin: 0 5px;
@@ -288,7 +288,7 @@ body::-webkit-scrollbar {
   }
   
   .section-wrapper {
-    padding: 0 3px;
+    padding: 0px;
   }
   
   .nav-section, .games-container, .race-container, .section-Events {
