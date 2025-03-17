@@ -1,0 +1,54 @@
+.report-settings-container {
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  background-color: #0081b8;
+  color: white;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 0 15px;
+}
+
+.settings-button {
+  padding: 20px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: opacity 0.2s;
+}
+
+.settings-button:hover {
+  opacity: 0.9;
+}
+
+.dark-button {
+  background-color: #eba50ece;
+}
+
+.red-button {
+  background-color: #2a6b89;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+}

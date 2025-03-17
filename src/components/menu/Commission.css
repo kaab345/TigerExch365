@@ -1,0 +1,58 @@
+.ibox-title {
+  background: #000;
+  color: #fff;
+  display: grid;
+  padding: 15px;
+  font-size: 17px;
+  line-height: 25px;
+}
+
+.dataTables_wrapper {
+  margin-bottom: 0;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th, .data-table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.tablelightblue {
+  background-color: #e0f7fa;
+  color: #000;
+}
+
+.tabledarkblue {
+  background-color: #1e3a8a;
+  color: #fff;
+}
+
+.pagination-section {
+  padding-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pagination {
+  list-style: none;
+  display: flex;
+  gap: 5px;
+  padding: 0;
+}
+
+.pagination li {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.pagination li:hover {
+  background-color: #c82333;
+}

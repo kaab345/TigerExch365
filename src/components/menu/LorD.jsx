@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Lena.css'; // Import the CSS file
 
 const LorD = () => {
   const [clearExpanded, setClearExpanded] = useState(false);
@@ -8,88 +9,79 @@ const LorD = () => {
   };
 
   return (
-    <section className="w-full container mx-auto p-4">
-      <div className="w-full">
-        {/* Header Row with Lena and Dena on same line with 10px gap */}
-        <div className="flex flex-col sm:flex-row w-full gap-2 p-2 mb-0">
-          <div className="w-full sm:w-1/2 border border-gray-300 bg-yellow-400 text-black p-2 font-bold text-base flex justify-between mb-2.5 sm:mb-0">
+    <section className="lord-container">
+      <div className="lord-content">
+        {/* Header Row with Lena and Dena on same line */}
+        <div className="header-row">
+          <div className="card">
             <div>Lena</div>
-            <div className="text-red-600 text-right" id="lenaTotal">0.00</div>
+            <div className="text-red" id="lenaTotal">0.00</div>
           </div>
-          <div className="w-full sm:w-1/2 border border-gray-300 bg-yellow-400 text-black p-2 font-bold text-base flex justify-between">
+          <div className="card">
             <div>Dena</div>
-            <div className="text-green-600 text-right" id="denaTotal">0.00</div>
+            <div className="text-green" id="denaTotal">0.00</div>
           </div>
         </div>
         
-        {/* Tables Row with 10px gap */}
-        <div className="flex flex-col sm:flex-row w-full gap-2 p-2">
+        {/* Tables Row */}
+        <div className="tables-row">
           {/* Lena Table */}
-          <div className="w-full sm:w-1/2 mb-2.5 sm:mb-0">
-            <div className="overflow-x-auto border border-gray-300">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr>
-                    <th className="bg-blue-600 text-white p-2 border-r border-gray-300">User Detail</th>
-                    <th className="bg-blue-800 text-white p-2 border-r border-gray-300">Balance</th>
-                    <th className="bg-blue-600 text-white p-2">Action</th>
-                  </tr>
-                </thead>
-                <tbody id="lenaList">
-                  {/* Dynamic content will go here */}
-                </tbody>
-              </table>
-            </div>
+          <div className="table-container">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th className="table-header">User Detail</th>
+                  <th className="table-header-dark">Balance</th>
+                  <th className="table-header-last">Action</th>
+                </tr>
+              </thead>
+              <tbody id="lenaList">
+                {/* Dynamic content will go here */}
+              </tbody>
+            </table>
           </div>
           
           {/* Dena Table */}
-          <div className="w-full sm:w-1/2">
-            <div className="overflow-x-auto border border-gray-300">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr>
-                    <th className="bg-blue-600 text-white p-2 border-r border-gray-300">User Detail</th>
-                    <th className="bg-blue-800 text-white p-2 border-r border-gray-300">Balance</th>
-                    <th className="bg-blue-600 text-white p-2">Action</th>
-                  </tr>
-                </thead>
-                <tbody id="denaList">
-                  {/* Dynamic content will go here */}
-                </tbody>
-              </table>
-            </div>
+          <div className="table-container">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th className="table-header">User Detail</th>
+                  <th className="table-header-dark">Balance</th>
+                  <th className="table-header-last">Action</th>
+                </tr>
+              </thead>
+              <tbody id="denaList">
+                {/* Dynamic content will go here */}
+              </tbody>
+            </table>
           </div>
         </div>
         
         {/* Clear Section */}
-        <div className="flex flex-col sm:flex-row w-full mt-4 p-2">
-          <div className="w-full sm:w-1/2">
-            <div 
-              className="border border-gray-300 bg-yellow-400 text-black p-2 font-bold text-base flex justify-between cursor-pointer"
-              onClick={toggleClear}
-            >
-              <div>Clear</div>
-              <div className="text-right">
-                <i className="text-xl">{clearExpanded ? '▲' : '▼'}</i>
-              </div>
+        <div className="clear-section">
+          <div className="card clear-toggle" onClick={toggleClear}>
+            <div>Clear</div>
+            <div>
+              <i style={{ fontSize: '1.25rem' }}>{clearExpanded ? '▲' : '▼'}</i>
             </div>
-            {clearExpanded && (
-              <div className="overflow-x-auto border-l border-r border-b border-gray-300">
-                <table className="w-full border-collapse">
-                  <thead>
-                    <tr>
-                      <th className="bg-blue-600 text-white p-2 border-r border-gray-300">User Detail</th>
-                      <th className="bg-blue-800 text-white p-2 border-r border-gray-300">Balance</th>
-                      <th className="bg-blue-600 text-white p-2">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody id="clearList">
-                    {/* Dynamic content will go here */}
-                  </tbody>
-                </table>
-              </div>
-            )}
           </div>
+          {clearExpanded && (
+            <div className="table-container" style={{ borderTop: 'none' }}>
+              <table className="data-table">
+                <thead>
+                  <tr>
+                    <th className="table-header">User Detail</th>
+                    <th className="table-header-dark">Balance</th>
+                    <th className="table-header-last">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="clearList">
+                  {/* Dynamic content will go here */}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       </div>
     </section>

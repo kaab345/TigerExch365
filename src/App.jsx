@@ -1,32 +1,30 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
-import { FaChartLine, FaList, FaUser, FaMoon, FaSun, FaSignOutAlt, FaBars, FaStopwatch, FaStar, FaHome, FaDice, FaGamepad, FaTimes } from "react-icons/fa";
+import { FaBars, FaStopwatch, FaStar, FaHome, FaDice, FaGamepad, FaTimes } from "react-icons/fa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faUser, 
-  faChevronUp, 
-  faChevronDown, 
-  faPlus, 
-  faUsers, 
-  faFutbol 
-} from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faUsers, faFutbol } from '@fortawesome/free-solid-svg-icons';
 import "./App.css";
 import MultiMarkets from "./components/menu/MultiMarkets";
-import Create from "./components/menu/create"; // Fixed import with proper capitalization
+import Create from "./components/menu/create";
 import SS from "./components/menu/SS";
 import My_ledger from "./components/menu/My_ledger";
 import LorD from "./components/menu/LorD";
+import Dead_Users from "./components/menu/Dead_Users.jsx";
+import Report from "./components/menu/Report.jsx";
 import ProfitLoss from "./components/menu/ProfitLoss";
 import Home from "./components/menu/Home";
 import Statement from "./components/menu/Statement";
 import UnSetted from "./components/menu/UnSetted";
-import TermsAndConditions from "./components/menu/TermsAndConditions"; 
+import TermsAndConditions from "./components/menu/TermsAndConditions";
 import EditStakes from "./components/menu/EditStakes";
 import Profile from "./components/menu/Profile";
+import Change_Password from "./components/menu/Change_Password.jsx";
 import Betting from "./components/Cricket/Betting";
 import Rule from "./components/menu/Rule";
-import UserForm from "./components/menu/UserForm.jsx"; // added import for UserForm
+import UserForm from "./components/menu/UserForm.jsx";
+import Commssion from "./components/menu/Commission.jsx";
+import Blockmarket from "./components/menu/Blockmarket.jsx";
 
 // Bottom Navigation Component
 const BottomNav = () => {
@@ -79,51 +77,44 @@ function App() {
   const [balance, setBalance] = useState(0.0);
   const [expose, setExpose] = useState(0.0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false); // Added missing state for dark mode
-  
+  const [darkMode, setDarkMode] = useState(false);
+
   const toggleSidebar = () => {
     setSidebarOpen(prev => !prev);
     document.body.classList.toggle('sidebar-open');
   };
-  
+
   const toggleDarkMode = () => {
     setDarkMode(prev => !prev);
   };
-  
+
   const handleLogout = () => {
-    // Handle logout logic here
     console.log("Logout clicked");
+    // Add actual logout logic here
   };
-  
+
   return (
     <Router>
       <div className={`app-container ${darkMode ? "dark-mode" : ""}`}>
-        <Sidebar 
-          isOpen={sidebarOpen} 
-          toggleSidebar={toggleSidebar} 
+        <Sidebar
+          isOpen={sidebarOpen}
+          toggleSidebar={toggleSidebar}
           darkMode={darkMode}
           toggleDarkMode={toggleDarkMode}
           handleLogout={handleLogout}
         />
-        
+
         <div className="content-wrapper">
           <main className="main-content">
-            {/* Header moved inside main content */}
             <header className="header-container">
-              <button 
-                className="menu-toggle" 
-                onClick={toggleSidebar} 
-                aria-label="Toggle Menu"
-              >
+              <button className="menu-toggle" onClick={toggleSidebar} aria-label="Toggle Menu">
                 <FaBars />
               </button>
 
               <div className="top-bar">
                 <div className="balance">
                   <span>Balance :</span>{" "}
-                  <span className="highlight">
-                    {balance?.toFixed(2) || "0.00"} PTI
-                  </span>
+                  <span className="highlight">{balance?.toFixed(2) || "0.00"} PTI</span>
                 </div>
                 <div className="exposure">
                   Exp : <span className="highlight">{expose?.toFixed(2) || "0.00"}</span>
@@ -142,28 +133,32 @@ function App() {
               </div>
             </header>
 
-            {/* Routes section */}
             <div className="routes-container">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/Home" element={<Home />} />
                 <Route path="/multi-markets" element={<MultiMarkets />} />
-                <Route path="/create-users" element={<Create />} /> {/* Updated route path */}
-                <Route path="/SS" element={<SS />} /> {/* Updated route path */}
+                <Route path="/create-users" element={<Create />} />
+                <Route path="/SS" element={<SS />} />
                 <Route path="/My-Ledger" element={<My_ledger />} />
                 <Route path="/LorD" element={<LorD />} />
                 <Route path="/profit-loss" element={<ProfitLoss />} />
                 <Route path="/statement" element={<Statement />} />
                 <Route path="/unsetted" element={<UnSetted />} />
                 <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-                <Route path="/edit-stake" element={<EditStakes/>} />
-                <Route path="/Profile" element={<Profile/>} />
-                <Route path="/Betting" element={<Betting/>} />
+                <Route path="/edit-stake" element={<EditStakes />} />
+                <Route path="/Profile" element={<Profile />} />
+                <Route path="/change-password" element={<Change_Password />} />
+                <Route path="/Dead_Users" element={<Dead_Users />} />
+                <Route path="/Report" element={<Report />} />
+                <Route path="/Betting" element={<Betting />} />
                 <Route path="/rule" element={<Rule />} />
                 <Route path="/myledger/:id/:type/:pageNumber/:pageSize/:sortOrder" element={<div>My Ledger</div>} />
                 <Route path="/subledger/:id" element={<div>Lena Aur Dena</div>} />
                 <Route path="/ss-users" element={<div>SS Users</div>} />
-                <Route path="/userform" element={<UserForm />} /> {/* added route for UserForm */}
+                <Route path="/userform" element={<UserForm />} />
+                <Route path="/Blockmarket" element={<Blockmarket />} />
+                <Route path="/Commssion" element={<Commssion />} />
               </Routes>
             </div>
           </main>
@@ -180,7 +175,6 @@ const Sidebar = ({ isOpen, toggleSidebar, darkMode, toggleDarkMode, handleLogout
   const [expandedDropdown, setExpandedDropdown] = useState(null);
   const location = useLocation();
 
-  // Add menuItems definition here
   const menuItems = [
     {
       name: "Home",
@@ -204,9 +198,20 @@ const Sidebar = ({ isOpen, toggleSidebar, darkMode, toggleDarkMode, handleLogout
           link: "/create-users",
         },
         {
-          name: "SS Users",
+          name: "SS ",
           icon: <FontAwesomeIcon icon={faUsers} className="menu-icon" />,
           link: "/SS",
+        },
+        {
+          name: "SP ",
+          icon: <FontAwesomeIcon icon={faUsers} className="menu-icon" />,
+          link: "/#",
+        }
+        ,
+        {
+          name: "SA ",
+          icon: <FontAwesomeIcon icon={faUsers} className="menu-icon" />,
+          link: "/#",
         }
       ]
     },
@@ -219,7 +224,7 @@ const Sidebar = ({ isOpen, toggleSidebar, darkMode, toggleDarkMode, handleLogout
         {
           name: "My Ledger",
           icon: <FontAwesomeIcon icon={faFutbol} className="menu-icon" />,
-          link: "/My-ledger",
+          link: "/My-Ledger",
         },
         {
           name: "Lena Aur Dena",
@@ -227,6 +232,40 @@ const Sidebar = ({ isOpen, toggleSidebar, darkMode, toggleDarkMode, handleLogout
           link: "/LorD",
         }
       ]
+    },
+    {
+      name: "Report",
+      icon: <img className="menu-icon" src="https://img.icons8.com/fluency/96/report-file.png" alt="Report" />,
+      link: "/Report"
+    },
+    {
+      name: "Dead Users",
+      icon: <img className="menu-icon" src="https://img.icons8.com/arcade/64/die-in-bed.png" alt="Dead User" />,
+      link: "/Dead_Users"
+    },
+    ,
+    {
+      name: "Block Market",
+      icon: <img className="menu-icon" src="https://img.icons8.com/hatch/64/1A1A1A/security-block.png" alt="Block Market" />,
+      link: "/Blockmarket"
+    },
+    ,
+    {
+      name: "Live Casino",
+      icon: <img className="menu-icon" src="https://img.icons8.com/ios-filled/50/chip--v2.png" alt="Live Casino" />,
+      link: "/#"
+    },
+    ,
+    {
+      name: "Lotus Casino",
+      icon: <img className="menu-icon" src="https://img.icons8.com/ios-filled/50/chip--v1.png" alt="Lotus Casino" />,
+      link: "/#"
+    },
+    ,
+    {
+      name: "Inter Casino",
+      icon: <img className="menu-icon" src="https://img.icons8.com/ios-filled/50/roulette.png" alt="Inter Casino" />,
+      link: "/#"
     },
     {
       name: "Profit Loss",
@@ -263,41 +302,37 @@ const Sidebar = ({ isOpen, toggleSidebar, darkMode, toggleDarkMode, handleLogout
       icon: <img className="menu-icon" src="https://tiger365.me/tiger365.me/images/profile.svg" alt="Profile" />,
       link: "/Profile"
     },
+    {
+      name: "Change Password",
+      icon: <img className="menu-icon" src="https://img.icons8.com/external-sbts2018-solid-sbts2018/58/external-change-password-basic-ui-elements-2.3-sbts2018-solid-sbts2018.png" alt="Change Password" />,
+      link: "/change-password"
+    }
   ];
 
   const toggleDropdown = (index) => {
     setExpandedDropdown(expandedDropdown === index ? null : index);
   };
 
-  // Remove the useEffect and sidebarRef since we don't want click outside behavior
-
   return (
-    <div 
-      className={`sidebar ${darkMode ? "dark-mode" : ""} ${isOpen ? "open" : ""}`}
-    >
+    <div className={`sidebar ${darkMode ? "dark-mode" : ""} ${isOpen ? "open" : ""}`}>
       <div className="sidebar-logo">
         <div className="text-logo">
           <span className="logo-orange">PUNT</span>
           <span className="logo-blue">EXCH</span>
         </div>
         {isOpen && (
-          <button 
-            className="sidebar-close-btn" 
-            onClick={toggleSidebar} 
-            aria-label="Close Sidebar"
-          >
+          <button className="sidebar-close-btn" onClick={toggleSidebar} aria-label="Close Sidebar">
             <FaTimes />
           </button>
         )}
       </div>
-      
+
       <ul className="sidebar-menu">
-        {menuItems.flatMap((item, index) => {
+        {menuItems.map((item, index) => {
           const itemsArr = [];
-          // Render parent item
           itemsArr.push(
             <li key={`parent-${index}`} className={`sidebar-item ${location.pathname === item.link ? 'active' : ''} ${item.isChild ? 'menu-child' : ''} ${item.isParent ? 'menu-parent' : ''}`}>
-              <Link 
+              <Link
                 to={item.link}
                 className="sidebar-link"
                 onClick={(e) => {
@@ -313,13 +348,12 @@ const Sidebar = ({ isOpen, toggleSidebar, darkMode, toggleDarkMode, handleLogout
               </Link>
             </li>
           );
-          // If parent is expanded, insert its children as separate list items
           if (item.isParent && expandedDropdown === index) {
             item.children.forEach((child, childIndex) => {
               itemsArr.push(
                 <li key={`child-${index}-${childIndex}`} className="sidebar-item menu-child">
-                  <Link 
-                    to={child.link} 
+                  <Link
+                    to={child.link}
                     className="sidebar-link"
                     onClick={() => window.innerWidth < 768 && toggleSidebar()}
                   >
@@ -331,24 +365,33 @@ const Sidebar = ({ isOpen, toggleSidebar, darkMode, toggleDarkMode, handleLogout
           }
           return itemsArr;
         })}
-        
+
         <li className="sidebar-item dark-mode-toggle" onClick={toggleDarkMode}>
           <div className="sidebar-link">
-            <img 
-              src="https://tiger365.me/tiger365.me/images/contrast.svg" 
-              alt="Contrast Icon" 
-              className="menu-icon" 
+            <img
+              src="https://tiger365.me/tiger365.me/images/contrast.svg"
+              alt="Contrast Icon"
+              className="menu-icon"
             />
             <span>Mode: {darkMode ? "Dark" : "Light"}</span>
           </div>
         </li>
-        
+        <li className="sidebar-item">
+    <Link to="/Commssion" className="sidebar-link">
+      <img 
+        className="menu-icon" 
+        src="https://img.icons8.com/ios-filled/50/info-popup.png" 
+        alt="Missing Commission" 
+      />
+      <span>Missing Commission</span>
+    </Link>
+  </li>
         <li className="sidebar-item">
           <div className="sidebar-link" onClick={handleLogout}>
-            <img 
-              src="https://tiger365.me/tiger365.me/images/logout.svg" 
-              alt="Logout" 
-              className="menu-icon" 
+            <img
+              src="https://tiger365.me/tiger365.me/images/logout.svg"
+              alt="Logout"
+              className="menu-icon"
             />
             <span>Logout</span>
           </div>

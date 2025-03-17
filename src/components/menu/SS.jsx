@@ -1,23 +1,24 @@
 import React from 'react';
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react';
+import './SS.css';
 
 const SS = () => {
   return (
-    <div className="w-full border border-gray-300 p-4">
+    <div className="member-container">
       {/* Search and New Member row */}
-      <div className="flex flex-col sm:flex-row justify-between items-center gap-2 bg-white p-2 rounded">
-        <div className="flex gap-2 w-full sm:w-auto">
+      <div className="action-bar">
+        <div className="search-group">
           <input
             type="text"
             placeholder="Search..."
-            className="px-2 py-1 border border-gray-300 rounded-sm w-full sm:w-40"
+            className="search-input"
           />
-          <button className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-1 rounded transition-colors">
+          <button className="search-button">
             Search
           </button>
         </div>
-        <button 
-          className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-1 rounded transition-colors w-full sm:w-auto"
+        <button
+          className="new-member-button"
           onClick={() => window.location.href = '/create-users'}
         >
           New Member
@@ -25,42 +26,42 @@ const SS = () => {
       </div>
       
       {/* Table header */}
-      <div className="w-full">
-        <table className="w-full border-collapse">
+      <div className="table-wrapper">
+        <table className="member-table">
           <thead>
             <tr>
-              <th className="p-2 bg-gray-600 text-white text-left border-r border-gray-500">LOGIN</th>
-              <th className="p-2 bg-red-600 text-white text-left border-r border-gray-500">NAME</th>
-              <th className="p-2 bg-gray-600 text-white text-left border-r border-gray-500">BALANCE</th>
-              <th className="p-2 bg-red-600 text-white text-left border-r border-gray-500">EXPOSURE</th>
-              <th className="p-2 bg-gray-600 text-white text-left">ACTION</th>
+              <th className="header-gray">LOGIN</th>
+              <th className="header-red">NAME</th>
+              <th className="header-gray">BALANCE</th>
+              <th className="header-red">EXPOSURE</th>
+              <th className="header-gray no-border-right">ACTION</th>
             </tr>
           </thead>
           <tbody>
             {/* Empty table body as shown in the image */}
             <tr>
-              <td colSpan="5" className="p-6"></td>
+              <td colSpan="5" className="empty-row"></td>
             </tr>
           </tbody>
         </table>
       </div>
       
       {/* Pagination controls */}
-      <div className="flex justify-end p-2 bg-white border-t border-gray-300">
-        <div className="flex">
-          <button className="border border-gray-300 px-3 py-1 rounded-sm mr-1">
+      <div className="pagination-bar">
+        <div className="pagination-controls">
+          <button className="page-button">
             <ChevronsLeft size={16} />
           </button>
-          <button className="border border-gray-300 px-3 py-1 rounded-sm mr-1">
+          <button className="page-button">
             <ChevronLeft size={16} />
           </button>
-          <button className="border border-gray-300 px-3 py-1 rounded-sm mr-1 bg-green-600 text-white">
+          <button className="page-button active">
             1
           </button>
-          <button className="border border-gray-300 px-3 py-1 rounded-sm mr-1">
+          <button className="page-button">
             <ChevronRight size={16} />
           </button>
-          <button className="border border-gray-300 px-3 py-1 rounded-sm">
+          <button className="page-button">
             <ChevronsRight size={16} />
           </button>
         </div>

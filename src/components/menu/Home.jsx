@@ -1,9 +1,9 @@
 import React from "react";
 import "./Home.css";
-
+import { FaStopwatch } from "react-icons/fa";
 // Navigation Items
 const navItems = [
-  { name: "FEATURED", icon: "star-selected.svg", count: 4, link: "./featured" },
+  { name: "INPLAY", count: 4, link: "./Home" },
   { name: "CRICKET", icon: "icon-cricket.svg", count: 11, link: "./Betting" },
   { name: "FOOTBALL", icon: "icon-football.svg", count: 15, link: "./football" },
   { name: "TENNIS", icon: "icon-tennis.svg", count: 15, link: "./tennis" },
@@ -148,7 +148,14 @@ const Home = () => {
               {navItems.map((item, index) => (
                 <li key={index}>
                   <a href={item.link}>
-                    <img src={`https://tiger365.me/tiger365.me/images/${item.icon}`} alt={item.name} />
+                    {item.name === "INPLAY" ? (
+                      <FaStopwatch />
+                    ) : (
+                      <img 
+                        src={`https://tiger365.me/tiger365.me/images/${item.icon}`} 
+                        alt={item.name} 
+                      />
+                    )}
                     <span>{item.count}</span>
                     <p>{item.name}</p>
                   </a>
