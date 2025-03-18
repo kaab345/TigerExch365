@@ -23,32 +23,45 @@
   padding: 0 15px;
 }
 
+.settings-link {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+
 .settings-button {
-  padding: 20px;
+  padding: 12px;
   border: none;
-  color: white;
-  font-size: 16px;
+  color: #333;
+  font-size: 14px;
   text-align: center;
   cursor: pointer;
   border-radius: 3px;
   transition: opacity 0.2s;
+  width: 100%;
 }
 
 .settings-button:hover {
   opacity: 0.9;
 }
 
-.dark-button {
-  background-color: #eba50ece;
+.blue-button {
+  background-color: #e6f2f7;  /* Very light blue */
+  color: #2a5769;
 }
 
-.red-button {
-  background-color: #2a6b89;
+.gray-button {
+  background-color: #f0f0f0;  /* Light gray */
+  color: #555555;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .settings-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .settings-button {
+    padding: 10px;
   }
 }

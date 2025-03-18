@@ -8,7 +8,6 @@ const Blockmarket = () => {
     { id: 4, name: 'Cricket', status: true, url: '/blockmarket1/4' },
     { id: 8, name: 'Casino', status: true, url: null },
     { id: 7, name: 'Lotus Casino', status: true, url: null },
-    { id: 9, name: 'Int. Casino', status: true, url: null }
   ]);
 
   const handleToggle = (id) => {
@@ -19,11 +18,9 @@ const Blockmarket = () => {
 
   return (
     <section className="scrollable padder">
-      <ul className="breadcrumb">
+      <div className="header">
         <h2>Block Market</h2>
-        <li><a href="/AdminDashboard">Dashboard</a></li>
-        <li className="active">Block Market</li>
-      </ul>
+      </div>
       
       <section className="panel">
         <div className="table-responsive">

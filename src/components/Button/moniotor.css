@@ -1,0 +1,87 @@
+.report-settings-container {
+  font-family: Arial, sans-serif;
+  width: 100%;
+}
+
+.header-bar {
+  background-color: #0277bd;
+  color: white;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.ibox-title {
+  background: #004660;
+  color: #fff;
+  padding: 12px 15px;
+  border-radius: 3px;
+  margin-bottom: 15px;
+}
+
+.ibox-title h5 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.button-section {
+  margin-top: 1%;
+}
+
+.doc-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.button-container {
+  width: calc(33.333% - 10px);
+  min-width: 180px;
+  padding: 0;
+}
+
+.report-button {
+  display: block;
+  text-align: center;
+  padding: 12px 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 3px;
+  width: 100%;
+  transition: opacity 0.3s;
+}
+
+.report-button:hover {
+  opacity: 0.9;
+}
+
+.monitor-creation {
+  background-color: #455a64;
+}
+
+.monitor-user {
+  background-color: #e91e63;
+}
+
+.user-pl {
+  background-color: #455a64;
+}
+
+@media (max-width: 768px) {
+  .button-container {
+    width: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .button-container {
+    width: 100%;
+  }
+}

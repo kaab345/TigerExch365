@@ -1,0 +1,122 @@
+/* Live Casino Component Styles */
+
+.live-casino-container {
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Top header bar */
+.header-bar {
+  background-color: #0077b6;
+  color: white;
+  padding: 15px 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Navigation buttons container */
+.nav-buttons-container {
+  display: flex;
+  margin-top: 2px;
+}
+
+.profit-loss-btn {
+  background-color: #455a64;
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  cursor: pointer;
+  flex: 0 0 238px;
+}
+
+.total-report-btn {
+  background-color: #e71d36;
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  cursor: pointer;
+  flex: 0 0 238px;
+  margin-left: 2px;
+}
+
+/* Breadcrumb styles */
+.scrollable {
+  margin-top: 20px;
+}
+
+.breadcrumb {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 15px;
+  list-style: none;
+}
+
+.breadcrumb h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.breadcrumb li {
+  display: inline-block;
+  font-size: 14px;
+}
+
+.breadcrumb li a {
+  color: #004660;
+  text-decoration: none;
+}
+
+.breadcrumb li.active {
+  color: #777;
+}
+
+/* Box title */
+.ibox-title {
+  background-color: #004660 !important;
+  color: white !important;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+}
+
+.ibox-title h5 {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Button section */
+.button-section {
+  margin-top: 1%;
+}
+
+.doc-buttons {
+  display: flex;
+}
+
+.button-container {
+  padding-left: 0;
+  width: 16.666%;
+  min-width: 160px;
+  margin-right: 10px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.warning-btn {
+  background-color: #f0ad4e;
+  color: white;
+}
+
+.danger-btn {
+  background-color: #d9534f;
+  color: white;
+}

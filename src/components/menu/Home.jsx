@@ -3,7 +3,7 @@ import "./Home.css";
 import { FaStopwatch } from "react-icons/fa";
 // Navigation Items
 const navItems = [
-  { name: "INPLAY", count: 4, link: "./Home" },
+  { name: "INPLAY",icon: "FaStopwatch", count: 4, link: "./Home" },
   { name: "CRICKET", icon: "icon-cricket.svg", count: 11, link: "./Betting" },
   { name: "FOOTBALL", icon: "icon-football.svg", count: 15, link: "./football" },
   { name: "TENNIS", icon: "icon-tennis.svg", count: 15, link: "./tennis" },

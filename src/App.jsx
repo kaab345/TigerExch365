@@ -12,6 +12,9 @@ import My_ledger from "./components/menu/My_ledger";
 import LorD from "./components/menu/LorD";
 import Dead_Users from "./components/menu/Dead_Users.jsx";
 import Report from "./components/menu/Report.jsx";
+import Report_Detail from "./components/Button/Report_Detail.jsx";
+import Shown from "./components/Button/Shown.jsx";
+import moniotor from "./components/Button/Moniotor.jsx";
 import ProfitLoss from "./components/menu/ProfitLoss";
 import Home from "./components/menu/Home";
 import Statement from "./components/menu/Statement";
@@ -25,6 +28,8 @@ import Rule from "./components/menu/Rule";
 import UserForm from "./components/menu/UserForm.jsx";
 import Commssion from "./components/menu/Commission.jsx";
 import Blockmarket from "./components/menu/Blockmarket.jsx";
+import LotusCasino from "./components/menu/LotusCasino.jsx";
+import Moniotor from "./components/Button/Moniotor.jsx";
 
 // Bottom Navigation Component
 const BottomNav = () => {
@@ -151,8 +156,13 @@ function App() {
                 <Route path="/change-password" element={<Change_Password />} />
                 <Route path="/Dead_Users" element={<Dead_Users />} />
                 <Route path="/Report" element={<Report />} />
+                <Route path="/Report_Detail" element={<Report_Detail />} />
+                <Route path="/Shown" element={<Shown />} />
+                <Route path="/Moniotor" element={<Moniotor />} />
                 <Route path="/Betting" element={<Betting />} />
                 <Route path="/rule" element={<Rule />} />
+                <Route path="/LotusCasino" element={<LotusCasino />} />
+                
                 <Route path="/myledger/:id/:type/:pageNumber/:pageSize/:sortOrder" element={<div>My Ledger</div>} />
                 <Route path="/subledger/:id" element={<div>Lena Aur Dena</div>} />
                 <Route path="/ss-users" element={<div>SS Users</div>} />
@@ -259,14 +269,9 @@ const Sidebar = ({ isOpen, toggleSidebar, darkMode, toggleDarkMode, handleLogout
     {
       name: "Lotus Casino",
       icon: <img className="menu-icon" src="https://img.icons8.com/ios-filled/50/chip--v1.png" alt="Lotus Casino" />,
-      link: "/#"
+      link: "/LotusCasino"
     },
-    ,
-    {
-      name: "Inter Casino",
-      icon: <img className="menu-icon" src="https://img.icons8.com/ios-filled/50/roulette.png" alt="Inter Casino" />,
-      link: "/#"
-    },
+    
     {
       name: "Profit Loss",
       icon: <img className="menu-icon" src="https://tiger365.me/tiger365.me/images/profitloss.svg" alt="Profit Loss" />,

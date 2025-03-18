@@ -15,6 +15,13 @@ import "./components/menu/LorD.jsx";
 import "./components/menu/Lena.css"
 import "./components/menu/Dead_Users.jsx";
 import "./components/menu/Report.jsx"
+import "./components/Button/Report_Detail.jsx";
+import "./components/Button/Shown.jsx";
+import "./components/Button/Shown.css";
+import "./components/Button/Moniotor.jsx";
+import "./components/Button/moniotor.css";
+import "./components/menu/LotusCasino.jsx";
+import "./components/menu/Lotus.css";
 import "./components/menu/Report.css";
 import "./components/menu/Dead_Users.css";
 import "./components/menu/ProfitLoss.jsx";

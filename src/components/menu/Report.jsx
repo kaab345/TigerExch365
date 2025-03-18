@@ -1,5 +1,5 @@
 import React from 'react';
-import './Dead_Users.css';
+import './Report.css';
 
 const Report = () => {
   return (
@@ -9,21 +9,37 @@ const Report = () => {
       </div>
       
       <div className="settings-grid">
-        <button className="settings-button dark-button">
+        <a 
+          href="/Report_Detail" 
+          className="settings-link blue-button"
+          aria-label="Report Details"
+        >
           Report Details
-        </button>
+        </a>
         
-        <button className="settings-button red-button">
+        <a 
+          href="/total-report" 
+          className="settings-link gray-button"
+          aria-label="Total Report"
+        >
           Total Report
-        </button>
+        </a>
         
-        <button className="settings-button dark-button">
+        <a 
+          href="/Shown" 
+          className="settings-link blue-button"
+          aria-label="Show Details"
+        >
           Show Details
-        </button>
+        </a>
         
-        <button className="settings-button red-button">
+        <a 
+          href="/Moniotor" 
+          className="settings-link gray-button"
+          aria-label="Monitoring"
+        >
           Monitoring
-        </button>
+        </a>
       </div>
     </div>
   );
