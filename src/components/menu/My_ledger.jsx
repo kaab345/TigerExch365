@@ -101,15 +101,15 @@ const My_ledger = () => {
       <div className="table-container overflow-x-auto mt-4 rounded border">
         <table className="data-table min-w-full">
           <thead>
-            <tr>
-              <th className="dark orange-header">Date</th>
-              <th className="white-header">Collection Name</th>
-              <th className="white-header">Debit</th>
-              <th className="White-header">Credit</th>
-              <th className="white-header">Balance</th>
-              <th className="white-header">Payment Type</th>
-              <th className="white-header">Remark</th>
-              <th className="white-header">Action</th>
+            <tr style={{color:'black'}}>
+              <th className="dark orange-header" style={{color:'black'}}>Date</th>
+              <th className="white-header" style={{color:'black'}}>Collection Name</th>
+              <th className="white-header" style={{color:'black'}}>Debit</th>
+              <th className="White-header" style={{color:'black'}}>Credit</th>
+              <th className="white-header" style={{color:'black'}}>Balance</th>
+              <th className="white-header" style={{color:'black'}}>Payment Type</th>
+              <th className="white-header" style={{color:'black'}}>Remark</th>
+              <th className="white-header" style={{color:'black'}}>Action</th>
             </tr>
           </thead>
           <tbody>

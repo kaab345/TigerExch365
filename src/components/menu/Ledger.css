@@ -56,7 +56,7 @@
 
 .btn-submit {
   background-color: darkorange;
-  color: white;
+  color: rgb(255, 255, 255);
   border: none;
   padding: 8px 20px;
   border-radius: 3px;
@@ -105,6 +105,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.white-header{
+  color: black;
 }
 
 .red-text {
