@@ -4,39 +4,46 @@
   border: 1px solid #d1d5db;
   padding: 16px;
 }
+* {
+  box-sizing: border-box;
+}
 
 /* Action bar with search and new member button */
 .action-bar {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  gap: 8px;
+  align-items: stretch; 
+  gap: 5px;
   background-color: #ffffff;
   padding: 8px;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
 .search-group {
   display: flex;
+  flex-direction: row; /* Keep search input and button in a row */
   gap: 8px;
   width: 100%;
+  justify-content: flex-end; /* Align search group to the right */
 }
 
 .search-input {
-  padding: 4px 8px;
+  padding: 8px; /* Increase padding for better touch interaction */
   border: 1px solid #d1d5db;
-  border-radius: 2px;
+  border-radius: 4px; /* Slightly larger border radius for mobile */
   width: 100%;
+  font-size: 16px; /* Increase font size for better readability */
 }
 
 .search-button {
   background-color: #4b5563;
   color: #ffffff;
-  padding: 4px 16px;
+  padding: 8px 16px; /* Increase padding for better touch interaction */
   border-radius: 4px;
   border: none;
   cursor: pointer;
+  font-size: 16px; /* Increase font size for better readability */
 }
 
 .search-button:hover {
@@ -46,12 +53,13 @@
 .new-member-button {
   background-color: #4b5563;
   color: #ffffff;
-  padding: 4px 16px;
+  padding: 8px 16px; /* Increase padding for better touch interaction */
   border-radius: 4px;
   border: none;
   cursor: pointer;
   width: 100%;
   transition: background-color 0.3s;
+  font-size: 16px; /* Increase font size for better readability */
 }
 
 .new-member-button:hover {
@@ -61,22 +69,32 @@
 /* Table styles */
 .table-wrapper {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .member-table {
   width: 100%;
+  display: grid; /* Use CSS Grid to create a flexible table layout */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust column size based on screen width */
   border-collapse: collapse;
 }
 
-.member-table th {
-  padding: 8px;
+.member-table th, .member-table td {
+  padding: 12px; /* Increase padding for better touch interaction */
   text-align: left;
   color: #ffffff;
   border-right: 1px solid #808694;
+  font-size: 16px; /* Increase font size for better readability */
 }
 
-.header-gray {
+.member-table th {
   background-color: #727d8c;
+}
+
+.member-table td {
+  background-color: #ffffff;
+  color: #000000;
 }
 
 .header-red {
@@ -93,28 +111,24 @@
 
 /* Pagination styles */
 .pagination-bar {
-  display: flex;
-  justify-content: flex-end;
-  padding: 8px;
-  background-color: #ffffff;
-  border-top: 1px solid #d1d5db;
+  display: inline-block;
+  padding-left: 0;
+  margin: 0px 0;
+  border-radius: 4px;
 }
 
 .pagination-controls {
   display: flex;
+  gap: 4px; /* Add gap between buttons */
 }
 
 .page-button {
   border: 1px solid #d1d5db;
-  padding: 4px 12px;
-  border-radius: 2px;
-  margin-right: 4px;
+  padding: 8px 12px; /* Increase padding for better touch interaction */
+  border-radius: 4px;
   background-color: #ffffff;
   cursor: pointer;
-}
-
-.page-button:last-child {
-  margin-right: 0;
+  font-size: 16px; /* Increase font size for better readability */
 }
 
 .page-button.active {
@@ -128,16 +142,69 @@
   .action-bar {
     flex-direction: row;
   }
-  
+  .pagination-controls {
+    display: flex;
+    gap: 4px; /* Add gap between buttons */
+  }
   .search-group {
+    flex-direction: row; /* Revert to horizontal layout on larger screens */
     width: auto;
   }
-  
+
   .search-input {
     width: 160px;
   }
-  
+
   .new-member-button {
     width: auto;
+  }
+
+  .pagination-bar {
+    justify-content: flex-end; /* Revert to right-aligned pagination on larger screens */
+  }
+
+  .pagination-controls {
+    flex-wrap: nowrap; /* Prevent wrapping on larger screens */
+  }
+}
+
+/* Specific styles for iPhone SE */
+@media (max-width: 320px) {
+  .action-bar {
+    padding: 4px;
+  }
+  .pagination-controls {
+    display: flex;
+    gap: 4px; /* Add gap between buttons */
+  }
+  .search-group {
+    gap: 4px;
+    justify-content: flex-end; /* Ensure search group is aligned to the right */
+  }
+
+  .search-input {
+    padding: 6px;
+    font-size: 14px;
+    width: 60%; /* Adjust width to fit smaller screens */
+  }
+
+  .search-button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .new-member-button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+ 
+  .member-table th, .member-table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .page-button {
+    padding: 6px 10px;
+    font-size: 14px;
   }
 }

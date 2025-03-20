@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
+import "./components/Header.jsx";
+import "./components/Siderbar.jsx";
+import "./components/Bottomnav.jsx"
 import "./components/menu/MultiMarkets.jsx";
 import "./components/menu/multi_markets.css";
 import "./components/menu/Users.jsx";
@@ -39,8 +42,6 @@ import "./components/Cricket/Betting.jsx"
 import "./components/Cricket/Betting.css";
 import "./components/menu/Rule.jsx";
 import "./components/menu/Rule.css";
-import "./components/mareque.jsx";
-import "./components/mareque.css";
 import "./components/menu/Blockmarket.jsx";
 import "./components/menu/Block_markets.css"
 ReactDOM.createRoot(document.getElementById("root")).render(

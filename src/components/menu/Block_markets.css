@@ -1,3 +1,5 @@
+/* Default Styles */
+
 /* Block Market Styles */
 .scrollable.padder {
   padding: 15px;
@@ -148,4 +150,70 @@ tr:nth-child(odd) {
 a {
   color: #337ab7;
   text-decoration: none;
+}
+
+/* Responsive Styles for iPhone SE */
+@media only screen and (max-width: 375px) {
+  .scrollable.padder {
+    padding: 10px;
+  }
+
+  .breadcrumb {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 10px;
+  }
+
+  .breadcrumb h2 {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .breadcrumb li {
+    margin-bottom: 5px;
+  }
+
+  .panel {
+    margin-bottom: 10px;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  .table th, .table td {
+    padding: 6px;
+  }
+
+  .switch {
+    width: 50px;
+    height: 28px;
+  }
+
+  .slider:before {
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(22px);
+  }
+
+  .slider.round {
+    border-radius: 28px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .breadcrumb,
+  .table,
+  .panel,
+  .switch {
+    width: 100%;
+    box-sizing: border-box;
+  }
 }

@@ -1,3 +1,4 @@
+/* Base styles for all devices */
 .container {
   margin: 20px;
   padding: 0;
@@ -49,4 +50,35 @@
 
 .button-section .btn-primary:hover {
   background-color: #c9302c;
+}
+
+/* Responsive styles for iPhone SE or similar small screens */
+@media only screen and (max-width: 375px) {
+  .container {
+    margin: 10px; /* Reduce margin for smaller screens */
+  }
+
+  .ibox-title {
+    padding: 8px 10px; /* Reduce padding for smaller screens */
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  .ibox-content {
+    flex-direction:flex; /* Stack content vertically on small screens */
+    padding: 2px; /* Reduce padding for smaller screens */
+  }
+
+  .form-group {
+    flex-direction: column; /* Stack form elements vertically */
+    gap: 8px; /* Reduce gap between elements */
+  }
+
+  .input-section .form-control {
+    padding: 6px 10px; /* Adjust padding for smaller screens */
+  }
+
+  .button-section .btn-primary {
+    padding: 6px 12px; /* Adjust button padding for smaller screens */
+    font-size: 14px; /* Adjust button font size */
+  }
 }
