@@ -1,9 +1,10 @@
 import React from "react";
-import "./Home.css";
 import { FaStopwatch } from "react-icons/fa";
+import "./Home.css";
+
 // Navigation Items
 const navItems = [
-  { name: "INPLAY",icon: "FaStopwatch", count: 4, link: "./Home" },
+  { name: "INPLAY", icon: "FaStopwatch", count: 4, link: "./Home" },
   { name: "CRICKET", icon: "icon-cricket.svg", count: 11, link: "./Betting" },
   { name: "FOOTBALL", icon: "icon-football.svg", count: 15, link: "./football" },
   { name: "TENNIS", icon: "icon-tennis.svg", count: 15, link: "./tennis" },
@@ -29,7 +30,7 @@ const games = [
   { image: "https://tiger365.me/assets/casino/c1-amar.png", link: "#" },
 ];
 
-// First Set of Races
+// First Set of Races (Horse Racing)
 const races1 = [
   { id: 1, url: "#", flag: "https://flagcdn.com/h40/au.png", time: "04:15 PM", name: "R8 1200m 3yo" },
   { id: 2, url: "#", flag: "https://flagcdn.com/h40/au.png", time: "04:19 PM", name: "R8 1609m Pace M" },
@@ -45,7 +46,7 @@ const races1 = [
   { id: 12, url: "#", flag: "https://flagcdn.com/h40/za.png", time: "06:15 PM", name: "R5 1200m Hcap" },
 ];
 
-// Second Set of Races
+// Second Set of Races (Greyhound Racing)
 const races2 = [
   { link: "#", flag: "https://flagcdn.com/h40/gb.png", time: "11:51 PM", name: "OR 450m" },
   { link: "#", flag: "https://flagcdn.com/h40/gb.png", time: "11:56 PM", name: "A1 500m" },
@@ -57,44 +58,6 @@ const races2 = [
   { link: "#", flag: "https://flagcdn.com/h40/gb.png", time: "12:16 AM", name: "B3 450m" },
   { link: "#", flag: "https://flagcdn.com/h40/gb.png", time: "12:18 AM", name: "OR1 480m" },
   { link: "#", flag: "https://flagcdn.com/h40/gb.png", time: "12:23 AM", name: "A4 491m" },
-];
-
-// Sample Sports Data
-const sportsData = [
-  {
-    category: "CRICKET",
-    events: [
-      {
-        date: "02/03/2025 02:30:00 PM",
-        teams: "New Zealand V India",
-        score: "0",
-        odds: [
-          ["India", "New Zealand"],
-          ["1.5", "2.3"]
-        ]
-      },
-      {
-        date: "26/02/2025 09:30:00 AM",
-        teams: "Vidarbha V Kerala",
-        score: "0",
-        odds: []
-      }
-    ]
-  },
-  {
-    category: "FOOTBALL",
-    events: [
-      {
-        date: "02/03/2025 08:30:00 PM",
-        teams: "Manchester United V Liverpool",
-        score: "2-1",
-        odds: [
-          ["Man Utd", "Draw", "Liverpool"],
-          ["2.1", "3.4", "2.8"]
-        ]
-      }
-    ]
-  }
 ];
 
 // Race Component
@@ -110,33 +73,6 @@ const Race = ({ race }) => {
   );
 };
 
-// Sports Events Component
-const SportsEvents = () => {
-  return (
-    <div className="section-Events">
-      <div className="section-Event">FEATURED EVENTS</div>
-      {sportsData.map((sport, index) => (
-        <div key={index}>
-          <div className="section-Event">{sport.category}</div>
-          {sport.events.map((event, idx) => (
-            <div key={idx} className="event-card">
-              <div>
-                <p className="event-time">{event.date}</p>
-                <p className="event-title">{event.teams}</p>
-                <p className="event-score">{event.score}</p>
-              </div>
-              <div className="badges">
-                <span className="badge">BM</span>
-                <span className="badge">F</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      ))}
-    </div>
-  );
-};
-
 const Home = () => {
   return (
     <div className="home-wrapper">
@@ -147,17 +83,22 @@ const Home = () => {
             <ul className="nav-items">
               {navItems.map((item, index) => (
                 <li key={index}>
-                  <a href={item.link}>
+                  <a href={item.link} className="nav-link">
                     {item.name === "INPLAY" ? (
-                      <FaStopwatch />
+                      <div className="nav-icon">
+                        <FaStopwatch size={24} /> {/* Set size for consistency */}
+                      </div>
                     ) : (
-                      <img 
-                        src={`https://tiger365.me/tiger365.me/images/${item.icon}`} 
-                        alt={item.name} 
-                      />
+                      <div className="nav-icon">
+                        <img 
+                          src={`https://tiger365.me/tiger365.me/images/${item.icon}`} 
+                          alt={item.name} 
+                          style={{ width: "24px", height: "24px" }} // Ensure consistent size
+                        />
+                      </div>
                     )}
-                    <span>{item.count}</span>
-                    <p>{item.name}</p>
+                    <span className="nav-count">{item.count}</span>
+                    <p className="nav-name">{item.name}</p>
                   </a>
                 </li>
               ))}
@@ -204,7 +145,14 @@ const Home = () => {
 
         {/* Sports Events Section */}
         <div className="section-wrapper">
-          <SportsEvents />
+          <div className="section-Events">
+            <div className="section-Event">FEATURED EVENTS</div>
+            <div className="section-Event">CRICKET</div>
+            <div className="section-Event">Tennis</div>
+            <div className="section-Event">FOOTBALL</div>
+            <div className="section-Event">KABADDI</div>
+            <div className="section-Event">POLITICS</div>
+          </div>
         </div>
       </div>
     </div>
